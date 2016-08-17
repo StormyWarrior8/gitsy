@@ -1,0 +1,23 @@
+{
+  "name": "astrocat",
+  "version": "1.0.0",
+  "description": "Behold Stargazers, here comes the AstroCat!",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bntzio/AstroCat.git"
+  },
+  "author": "Enrique Benitez <bntz.io>",
+  "private": true,
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/bntzio/AstroCat/issues"
+  },
+  "homepage": "https://github.com/bntzio/AstroCat#readme"
+}
