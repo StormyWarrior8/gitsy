@@ -23,7 +23,10 @@ gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
 gem 'react-rails'
 
 # Figaro
-gem "figaro"
+gem 'figaro'
+
+# Omniauth Github
+gem 'omniauth-github', :github => 'intridea/omniauth-github'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-semantic'
