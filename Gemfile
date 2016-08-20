@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bundler', '>= 1.8.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
@@ -17,6 +18,10 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use react as the JavaScript library
 gem 'react-rails'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-semantic'
+end
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
