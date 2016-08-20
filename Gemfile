@@ -16,6 +16,9 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# jQuery
+gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
+
 # Use react as the JavaScript library
 gem 'react-rails'
 

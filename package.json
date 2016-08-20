@@ -1,7 +1,7 @@
 {
-  "name": "astrocat",
+  "name": "astrix",
   "version": "1.0.0",
-  "description": "Behold Stargazers, here comes the AstroCat!",
+  "description": "The Github Repo Management Tool Every Stargazer Should Have",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -17,7 +17,7 @@
   "private": true,
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/bntzio/AstroCat/issues"
+    "url": "https://github.com/bntzio/astrix/issues"
   },
-  "homepage": "https://github.com/bntzio/AstroCat#readme"
+  "homepage": "https://github.com/bntzio/astrix#readme"
 }
