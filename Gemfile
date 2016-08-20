@@ -22,6 +22,9 @@ gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
 # Use react as the JavaScript library
 gem 'react-rails'
 
+# Figaro
+gem "figaro"
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-semantic'
 end
