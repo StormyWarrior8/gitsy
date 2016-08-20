@@ -1,3 +1,5 @@
 <h3>You're Signed in as <%= current_user.nickname %></h3>
 
 <%= link_to "Logout", logout_path, method: 'destroy' %>
+
+<%= react_component "Dashboard", starredReposUrl: @starred_repos_url %>

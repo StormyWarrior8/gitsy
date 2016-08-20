@@ -28,6 +28,9 @@ gem 'figaro'
 # Omniauth Github
 gem 'omniauth-github', :github => 'intridea/omniauth-github'
 
+# OctoKit
+gem 'octokit', '~> 4.0'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-semantic'
 end
