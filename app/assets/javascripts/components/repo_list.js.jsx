@@ -3,9 +3,10 @@ var RepoList = React.createClass({
     var repos = this.props.repos;
 
     var renderRepos = () => {
+      var anId = 0;
       return repos.map((repo) => {
         return (
-          <Repo key={repo.id} {...repo} />
+          <Repo key={anId++} name={repo[2][1]} />
         );
       });
     };

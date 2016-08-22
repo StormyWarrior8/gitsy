@@ -1,6 +1,8 @@
 var Repo = React.createClass({
+  propTypes: {
+    name: React.PropTypes.string
+  },
   render: function() {
-    var id = this.props.id;
     var name = this.props.name;
 
     return (
