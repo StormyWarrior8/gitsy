@@ -4,7 +4,7 @@ var RepoList = React.createClass({
 
     var renderRepos = () => {
       return repos.map((repo) => {
-        return <Repo key={repo[0]} name={repo[1]} description={repo[2]} language={repo[3]} htmlUrl={repo[4]} cloneUrl={repo[5]} stargazersCount={repo[6]} forksCount={repo[7]} watchersCount={repo[8]}/>;
+        return <Repo key={repo.id} id={repo.id} name={repo.repo_name} description={repo.desc} language={repo.lang} htmlUrl={repo.html_url} cloneUrl={repo.clone_url} stargazersCount={repo.stars} forksCount={repo.forks} watchersCount={repo.watchers} starLevel={repo.star_level} onStar={this.props.onStar}/>;
       });
     };
 

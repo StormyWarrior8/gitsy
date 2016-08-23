@@ -7,7 +7,7 @@ class Repo < ApplicationRecord
     repos = []
 
     client.starred.each do |r|
-      repo = Array.new([r.id, r.full_name, r.description, r.language, r.html_url, r.clone_url, r.stargazers_count, r.forks_count, r.watchers])
+      repo = {"id" => r.id, "repo_name" => r.full_name, "desc" => r.description, "lang" => r.language, "html_url" => r.html_url, "clone_url" => r.clone_url, "stars" => r.stargazers_count, "forks" => r.forks_count, "watchers" => r.watchers, "star_level" => 1}
       repos << repo
     end
 
