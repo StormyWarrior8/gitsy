@@ -1,7 +1,14 @@
 var Dashboard = React.createClass({
   getInitialState: function() {
     return {
-      currentStarredRepos: []
+      currentStarredRepos: [],
+      selectedRepo: [
+        {
+          name: "",
+          cloneUrl: "",
+          readme: ""
+        }
+      ]
     }
   },
   componentDidMount: function () {
@@ -49,13 +56,17 @@ var Dashboard = React.createClass({
 
     this.setState({currentStarredRepos: updatedRepos});
   },
+  handleRepo: function(title, url, text) {
+    this.setState({selectedRepo: [{name: title, cloneUrl: url, readme: text}]});
+  },
   render: function() {
     var currentStarredRepos = this.state.currentStarredRepos;
+    var selectedRepo = this.state.selectedRepo;
 
     return (
       <div className="ui two columns grid">
-        <RepoList repos={currentStarredRepos} onStar={this.handleStar}/>
-        <Readme/>
+        <RepoList repos={currentStarredRepos} onStar={this.handleStar} onSelected={this.handleRepo}/>
+        <Readme repo={selectedRepo}/>
       </div>
     );
   }
