@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 20160822220341) do
   enable_extension "plpgsql"
 
   create_table "repos", force: :cascade do |t|
+    t.string   "repo_id"
+    t.integer  "star_level"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -11,9 +11,36 @@ var Dashboard = React.createClass({
     var updatedRepos = this.state.currentStarredRepos.map((repo) => {
       if (repo.id === id) {
         if (repo.star_level !== 3) {
+          var level = repo.star_level + 1;
+
           repo.star_level += 1;
+
+          $.ajax({
+            url: "/repos",
+            type: "post",
+            data: {repo_id: id, star_level: level},
+            success: function(response) {
+              console.log(response)
+            },
+            error: function(xhr) {
+              console.log(xhr)
+            }
+          });
         } else {
-          repo.star_level = 1;
+          var level = 1;
+          repo.star_level = level;
+
+          $.ajax({
+            url: "/repos",
+            type: "post",
+            data: {repo_id: id, star_level: level},
+            success: function(response) {
+              console.log(response)
+            },
+            error: function(xhr) {
+              console.log(xhr)
+            }
+          });
         }
       }
 

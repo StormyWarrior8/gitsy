@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get 'dashboard' => 'dashboard#index'
 
-  resources :repos, only: ['index']
+  resources :repos, only: ['index', 'create']
 
   root 'home#index'
 
