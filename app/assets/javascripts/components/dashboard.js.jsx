@@ -53,8 +53,9 @@ var Dashboard = React.createClass({
     var currentStarredRepos = this.state.currentStarredRepos;
 
     return (
-      <div>
+      <div className="ui two columns grid">
         <RepoList repos={currentStarredRepos} onStar={this.handleStar}/>
+        <Readme/>
       </div>
     );
   }

@@ -1,0 +1,9 @@
+/* segments */
+.segments, .segment {
+  border-radius: 0 !important;
+}
+.segments {
+  border-left: none !important;
+  overflow-y: scroll !important;
+  height: 100vh;
+}

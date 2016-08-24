@@ -15,7 +15,7 @@ var Repo = React.createClass({
     var starLevel = this.props.starLevel;
 
     return (
-      <div className="ui segment">
+      <div className="ui vertical padded segment">
         <p onClick={() => {this.props.onStar(id);}}>Star!</p>
         <i>{starLevel}</i>
         <p><b>{name}</b></p>
