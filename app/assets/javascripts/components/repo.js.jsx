@@ -13,9 +13,10 @@ var Repo = React.createClass({
     var forksCount = this.props.forksCount;
     var watchersCount = this.props.watchersCount;
     var starLevel = this.props.starLevel;
+    var readmeUrl = this.props.readmeUrl;
 
     return (
-      <div className="ui vertical padded segment repo" onClick={() => {this.props.onSelected(name, cloneUrl, "readme example");}}>
+      <div className="ui vertical padded segment repo" onClick={() => {this.props.onSelected(name, cloneUrl, readmeUrl);}}>
         <i onClick={() => {this.props.onStar(id);}}><i className="star icon"></i></i>
         <span>{starLevel}</span>
         &nbsp;

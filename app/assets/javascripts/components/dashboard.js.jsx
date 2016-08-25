@@ -6,7 +6,7 @@ var Dashboard = React.createClass({
         {
           name: "",
           cloneUrl: "",
-          readme: ""
+          readmeUrl: ""
         }
       ]
     }
@@ -56,8 +56,8 @@ var Dashboard = React.createClass({
 
     this.setState({currentStarredRepos: updatedRepos});
   },
-  handleRepo: function(title, url, text) {
-    this.setState({selectedRepo: [{name: title, cloneUrl: url, readme: text}]});
+  handleRepo: function(title, clone_url, readme_url) {
+    this.setState({selectedRepo: [{name: title, cloneUrl: clone_url, readmeUrl: readme_url}]});
   },
   render: function() {
     var currentStarredRepos = this.state.currentStarredRepos;

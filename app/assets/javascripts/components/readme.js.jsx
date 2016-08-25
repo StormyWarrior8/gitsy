@@ -10,7 +10,7 @@ var Readme = React.createClass({
       return repo.map((r) => {
         name = r.name;
         clone = r.cloneUrl;
-        readme = r.readme;
+        readme = r.readmeUrl;
       });
     };
 
