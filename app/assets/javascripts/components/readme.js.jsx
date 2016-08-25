@@ -1,26 +1,31 @@
 var Readme = React.createClass({
-  render: function() {
-    var repo = this.props.repo;
+  renderReadme: function(readme_url) {
+    axios.get(readme_url)
+      .then(function (response) {
+        var data = (response.data);
 
-    var name = '';
-    var clone = '';
-    var readme = '';
+        {/*
+          console.log(marked(data));
+        */}
 
-    var assignRepoData = (repo) => {
-      return repo.map((r) => {
-        name = r.name;
-        clone = r.cloneUrl;
-        readme = r.readmeUrl;
+        $('.readme-md').html(marked(data));
+      })
+      .catch(function (error) {
+        console.log(error);
       });
-    };
+  },
+  render: function() {
+    var selectedRepoClone = this.props.selectedRepoClone;
+    var selectedRepoReadme = this.props.selectedRepoReadme;
 
     return (
       <div className="ten wide column">
-        <div className="ui piled very padded text container segment">
-          {assignRepoData(repo)}
-          <h1>{name}</h1>
-          <p>{clone}</p>
-          <h3>{readme}</h3>
+        <div className="ui very padded text container segment readme">
+          {(this.renderReadme(selectedRepoReadme))}
+          <p>
+            <b>Clone:</b> {selectedRepoClone}
+          </p>
+          <div className="readme-md"></div>
         </div>
       </div>
     );

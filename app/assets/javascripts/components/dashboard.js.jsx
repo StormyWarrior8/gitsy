@@ -2,13 +2,9 @@ var Dashboard = React.createClass({
   getInitialState: function() {
     return {
       currentStarredRepos: [],
-      selectedRepo: [
-        {
-          name: "",
-          cloneUrl: "",
-          readmeUrl: ""
-        }
-      ]
+      selectedRepoCloneUrl: '',
+      selectedRepoReadmeUrl: '',
+      repoActivated: false
     }
   },
   componentDidMount: function () {
@@ -56,17 +52,29 @@ var Dashboard = React.createClass({
 
     this.setState({currentStarredRepos: updatedRepos});
   },
-  handleRepo: function(title, clone_url, readme_url) {
-    this.setState({selectedRepo: [{name: title, cloneUrl: clone_url, readmeUrl: readme_url}]});
+  handleRepo: function(clone_url, readme_url) {
+    this.setState({
+      selectedRepoCloneUrl: clone_url,
+      selectedRepoReadmeUrl: readme_url,
+      repoActivated: true
+    });
   },
   render: function() {
     var currentStarredRepos = this.state.currentStarredRepos;
-    var selectedRepo = this.state.selectedRepo;
+    var selectedRepoCloneUrl = this.state.selectedRepoCloneUrl;
+    var selectedRepoReadmeUrl = this.state.selectedRepoReadmeUrl;
+    var repoActivated = this.state.repoActivated;
+
+    var showReadme = (active) => {
+      if (active == true) {
+        return <Readme selectedRepoClone={selectedRepoCloneUrl} selectedRepoReadme={selectedRepoReadmeUrl}/>;
+      }
+    };
 
     return (
       <div className="ui two columns grid">
         <RepoList repos={currentStarredRepos} onStar={this.handleStar} onSelected={this.handleRepo}/>
-        <Readme repo={selectedRepo}/>
+        {showReadme(repoActivated)}
       </div>
     );
   }
