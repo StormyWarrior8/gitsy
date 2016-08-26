@@ -4,6 +4,7 @@ var Dashboard = React.createClass({
       currentStarredRepos: [],
       selectedRepoCloneUrl: '',
       selectedRepoReadmeUrl: '',
+      selectedRepoId: undefined,
       repoActivated: false
     }
   },
@@ -52,12 +53,38 @@ var Dashboard = React.createClass({
 
     this.setState({currentStarredRepos: updatedRepos});
   },
-  handleRepo: function(clone_url, readme_url) {
+  handleRepo: function(repo_id, clone_url, readme_url) {
     this.setState({
       selectedRepoCloneUrl: clone_url,
       selectedRepoReadmeUrl: readme_url,
+      selectedRepoId: repo_id,
       repoActivated: true
     });
+  },
+  handleAddTag: function(text) {
+    var updatedRepos = this.state.currentStarredRepos.map((repo) => {
+      if (repo.id === this.state.selectedRepoId) {
+        var tagName = text;
+
+        repo.tag = tagName;
+
+        $.ajax({
+          url: "/repos",
+          type: "post",
+          data: {repo_id: repo.id, tag: tagName},
+          success: function(response) {
+            console.log(response)
+          },
+          error: function(xhr) {
+            console.log(xhr)
+          }
+        });
+      }
+
+      return repo;
+    });
+
+    this.setState({currentStarredRepos: updatedRepos});
   },
   render: function() {
     var currentStarredRepos = this.state.currentStarredRepos;
@@ -67,7 +94,7 @@ var Dashboard = React.createClass({
 
     var showReadme = (active) => {
       if (active == true) {
-        return <Readme selectedRepoClone={selectedRepoCloneUrl} selectedRepoReadme={selectedRepoReadmeUrl}/>;
+        return <Readme selectedRepoClone={selectedRepoCloneUrl} selectedRepoReadme={selectedRepoReadmeUrl} onAddTag={this.handleAddTag}/>;
       }
     };
 

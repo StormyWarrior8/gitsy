@@ -40,18 +40,28 @@ class Repo < ApplicationRecord
     return 1
   end
 
+  def self.get_correlation2(user, id)
+    user.repos.each do |r|
+      if id.to_s == r.repo_id
+        return r.tag
+      end
+    end
+
+    return ''
+  end
+
   def self.get_client_repos(user, user_token)
     client = Octokit::Client.new(client_id: ENV['GITHUB_KEY'], client_secret: ENV['GITHUB_SECRET'], :access_token => user_token, auto_paginate: true)
     repos = []
 
     if user.repos.count > 0
       client.starred.each do |r|
-        repo = {"id" => r.id, "repo_name" => r.full_name, "desc" => r.description, "lang" => r.language, "html_url" => r.html_url, "clone_url" => r.clone_url, "stars" => r.stargazers_count, "forks" => r.forks_count, "watchers" => r.watchers, "readme_url" => Repo.build_url(r.full_name) , "star_level" => Repo.get_correlation(user, r.id)}
+        repo = {"id" => r.id, "repo_name" => r.full_name, "desc" => r.description, "lang" => r.language, "html_url" => r.html_url, "clone_url" => r.clone_url, "stars" => r.stargazers_count, "forks" => r.forks_count, "watchers" => r.watchers, "readme_url" => Repo.build_url(r.full_name) , "star_level" => Repo.get_correlation(user, r.id), "tag" => Repo.get_correlation2(user, r.id)}
         repos << repo
       end
     else
       client.starred.each do |r|
-        repo = {"id" => r.id, "repo_name" => r.full_name, "desc" => r.description, "lang" => r.language, "html_url" => r.html_url, "clone_url" => r.clone_url, "stars" => r.stargazers_count, "forks" => r.forks_count, "watchers" => r.watchers, "readme_url" => Repo.build_url(r.full_name), "star_level" => 1}
+        repo = {"id" => r.id, "repo_name" => r.full_name, "desc" => r.description, "lang" => r.language, "html_url" => r.html_url, "clone_url" => r.clone_url, "stars" => r.stargazers_count, "forks" => r.forks_count, "watchers" => r.watchers, "readme_url" => Repo.build_url(r.full_name), "star_level" => 1, "tag" => ''}
         repos << repo
       end
     end

@@ -3,6 +3,7 @@ class CreateRepos < ActiveRecord::Migration[5.0]
     create_table :repos do |t|
       t.string :repo_id
       t.integer :star_level
+      t.string :tag
 
       t.references :user, foreign_key: true
 

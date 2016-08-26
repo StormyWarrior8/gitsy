@@ -38,6 +38,7 @@ var Readme = React.createClass({
       });
   },
   render: function() {
+    var selectedRepoId = this.props.selectedRepoId;
     var selectedRepoClone = this.props.selectedRepoClone;
     var selectedRepoReadme = this.props.selectedRepoReadme;
 
@@ -45,6 +46,7 @@ var Readme = React.createClass({
       <div className="ten wide column">
         <div className="ui very padded text container segment readme">
           {(this.renderReadme(selectedRepoReadme))}
+          <AddTag onAddTag={this.props.onAddTag}/>
           <p>
             <b>Clone:</b> {selectedRepoClone}
           </p>

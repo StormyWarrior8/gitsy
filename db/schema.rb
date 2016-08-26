@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160822220341) do
   create_table "repos", force: :cascade do |t|
     t.string   "repo_id"
     t.integer  "star_level"
+    t.string   "tag"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
