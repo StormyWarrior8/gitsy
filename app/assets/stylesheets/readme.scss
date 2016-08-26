@@ -1,4 +1,8 @@
 .readme {
   overflow-y: scroll !important;
   height: 100vh;
+
+  img {
+    max-width: 100%;
+  }
 }
