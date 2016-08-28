@@ -1,7 +1,3 @@
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .home {
   width: 100%;
   display: flex;
@@ -133,7 +129,7 @@
       -ms-transition: .5s;
       -o-transition: .5s;
       transition: .5s;
-      
+
       &:hover {
         background: #00925c;
         border-color: #00925c;

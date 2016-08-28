@@ -11,11 +11,6 @@
  * It is generally better to create a new file per style scope.
  *
  *= require semantic
- *= require_tree .
+ *= require app
  *= require_self
  */
-
-body {
-    font-family: "proxima-nova", sans-serif;
-    font-weight: 300;
-}

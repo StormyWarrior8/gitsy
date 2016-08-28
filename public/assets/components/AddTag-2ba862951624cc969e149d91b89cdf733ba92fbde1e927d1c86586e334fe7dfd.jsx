@@ -1,3 +1,5 @@
+var React = require('react');
+
 var AddTag = React.createClass({
   onSubmit: function(e) {
     e.preventDefault();
@@ -23,3 +25,5 @@ var AddTag = React.createClass({
     );
   }
 });
+
+module.exports = AddTag;

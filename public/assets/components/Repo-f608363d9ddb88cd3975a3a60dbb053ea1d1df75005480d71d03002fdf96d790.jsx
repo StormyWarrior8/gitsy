@@ -1,3 +1,5 @@
+var React = require('react');
+
 var Repo = React.createClass({
   propTypes: {
     name: React.PropTypes.string
@@ -32,3 +34,5 @@ var Repo = React.createClass({
     );
   }
 });
+
+module.exports = Repo;

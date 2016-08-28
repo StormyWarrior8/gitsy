@@ -1,3 +1,5 @@
+var React = require('react');
+
 var Readme = React.createClass({
   renderReadme: function(readme_url) {
     axios.get(readme_url)
@@ -56,3 +58,5 @@ var Readme = React.createClass({
     );
   }
 });
+
+module.exports = Readme;

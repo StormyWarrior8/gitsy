@@ -22,6 +22,9 @@ gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
 # Use react as the JavaScript library
 gem 'react-rails'
 
+# react-on-rails
+gem 'react_on_rails', '~> 5'
+
 # Figaro
 gem 'figaro'
 

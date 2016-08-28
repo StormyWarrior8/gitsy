@@ -1,3 +1,7 @@
+var React = require('react');
+var RepoList = require('RepoList');
+var Readme = require('Readme');
+
 var Dashboard = React.createClass({
   getInitialState: function() {
     return {
@@ -106,3 +110,5 @@ var Dashboard = React.createClass({
     );
   }
 });
+
+module.exports = Dashboard;

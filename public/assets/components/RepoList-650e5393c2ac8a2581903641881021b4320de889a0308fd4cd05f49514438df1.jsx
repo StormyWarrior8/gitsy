@@ -1,3 +1,5 @@
+var React = require('react');
+
 var RepoList = React.createClass({
   render: function() {
     var repos = this.props.repos;
@@ -17,3 +19,5 @@ var RepoList = React.createClass({
     );
   }
 });
+
+module.exports = RepoList;

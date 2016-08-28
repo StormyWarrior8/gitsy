@@ -12,9 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require ./covervid.min.js
 //= require semantic
-//= require react
-//= require react_ujs
-//= require components
-//= require_tree .
+//= require bundle
