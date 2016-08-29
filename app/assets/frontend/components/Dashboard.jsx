@@ -2,6 +2,7 @@ var React = require('react');
 var RepoList = require('RepoList');
 var Readme = require('Readme');
 var Nav = require('Nav');
+var Sidebar = require('Sidebar');
 
 var Dashboard = React.createClass({
   getInitialState: function() {
@@ -141,6 +142,7 @@ var Dashboard = React.createClass({
         </div>
         <div className="dashboard-view">
           <div className="dashboard-view-container">
+            <Sidebar/>
             <RepoList repos={currentStarredRepos} onStar={this.handleStar} onSelected={this.handleRepo}/>
             {showReadme(repoActivated)}
           </div>
