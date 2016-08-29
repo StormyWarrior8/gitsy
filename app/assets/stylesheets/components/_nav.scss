@@ -1,0 +1,27 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: $navy-blue;
+  color: $white;
+
+  &-title {
+    text-align: center;
+  }
+
+  &-gitoscope-settings {
+    display: flex;
+    justify-content: flex-start;
+
+    &-firstPanel {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      margin-left: 3rem;
+
+      &-components {
+        display: flex;
+      }
+    }
+  }
+}

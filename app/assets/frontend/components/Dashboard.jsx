@@ -1,10 +1,12 @@
 var React = require('react');
 var RepoList = require('RepoList');
 var Readme = require('Readme');
+var Nav = require('Nav');
 
 var Dashboard = React.createClass({
   getInitialState: function() {
     return {
+      allStarredRepos: [],
       currentStarredRepos: [],
       selectedRepoCloneUrl: '',
       selectedRepoReadmeUrl: '',
@@ -13,7 +15,7 @@ var Dashboard = React.createClass({
     }
   },
   componentDidMount: function () {
-    $.getJSON('/repos', (response) => {this.setState({ currentStarredRepos: response })})
+    $.getJSON('/repos', (response) => {this.setState({ currentStarredRepos: response, allStarredRepos: response })})
   },
   handleStar: function(id) {
     var updatedRepos = this.state.currentStarredRepos.map((repo) => {
@@ -90,6 +92,36 @@ var Dashboard = React.createClass({
 
     this.setState({currentStarredRepos: updatedRepos});
   },
+  setOneStar: function(one) {
+    var updatedRepos = [];
+    this.state.allStarredRepos.map((repo) => {
+      if (repo.star_level === one) {
+        updatedRepos.push(repo);
+      }
+    });
+
+    this.setState({currentStarredRepos: updatedRepos});
+  },
+  setTwoStars: function(two) {
+    var updatedRepos = [];
+    this.state.allStarredRepos.map((repo) => {
+      if (repo.star_level === two) {
+        updatedRepos.push(repo);
+      }
+    });
+
+    this.setState({currentStarredRepos: updatedRepos});
+  },
+  setThreeStars: function(three) {
+    var updatedRepos = [];
+    this.state.allStarredRepos.map((repo) => {
+      if (repo.star_level === three) {
+        updatedRepos.push(repo);
+      }
+    });
+
+    this.setState({currentStarredRepos: updatedRepos});
+  },
   render: function() {
     var currentStarredRepos = this.state.currentStarredRepos;
     var selectedRepoCloneUrl = this.state.selectedRepoCloneUrl;
@@ -104,8 +136,15 @@ var Dashboard = React.createClass({
 
     return (
       <div className="dashboard">
-        <RepoList repos={currentStarredRepos} onStar={this.handleStar} onSelected={this.handleRepo}/>
-        {showReadme(repoActivated)}
+        <div className="dashboard-control">
+          <Nav onSetOneStar={this.setOneStar} onSetTwoStars={this.setTwoStars} onSetThreeStars={this.setThreeStars}/>
+        </div>
+        <div className="dashboard-view">
+          <div className="dashboard-view-container">
+            <RepoList repos={currentStarredRepos} onStar={this.handleStar} onSelected={this.handleRepo}/>
+            {showReadme(repoActivated)}
+          </div>
+        </div>
       </div>
     );
   }
