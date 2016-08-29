@@ -1,8 +1,26 @@
 .readme {
-  overflow-y: scroll !important;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
+  width: 65%;
+  overflow-y: scroll;
 
   img {
     max-width: 100%;
+  }
+
+  &-sticky {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    position: fixed;
+    color: $white;
+    background: $navy-blue;
+  }
+
+  &-md {
+    width: 100%;
+    word-break: break-all;
+    padding: 1rem;
   }
 }

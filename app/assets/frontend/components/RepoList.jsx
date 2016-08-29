@@ -12,10 +12,8 @@ var RepoList = React.createClass({
     };
 
     return (
-      <div className="six wide column">
-        <div className="ui segments">
-          {renderRepos()}
-        </div>
+      <div className="repo-list">
+        {renderRepos()}
       </div>
     );
   }

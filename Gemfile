@@ -34,9 +34,9 @@ gem 'omniauth-github', :github => 'intridea/omniauth-github'
 # OctoKit
 gem 'octokit', '~> 4.0'
 
-source 'https://rails-assets.org' do
-  gem 'rails-assets-semantic'
-end
+# source 'https://rails-assets.org' do
+#   gem 'rails-assets-semantic'
+# end
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'

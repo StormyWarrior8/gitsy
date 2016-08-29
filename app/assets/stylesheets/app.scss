@@ -1,11 +1,11 @@
 // variables, defaults and overrides
 @import 'base/variables';
 @import 'base/defaults';
-@import 'base/semantic-overrides';
 
 // components
 @import 'components/dashboard';
 @import 'components/readme';
+@import 'components/repo-list';
 @import 'components/repo';
 
 // views

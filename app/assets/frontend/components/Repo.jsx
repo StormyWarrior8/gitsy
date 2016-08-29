@@ -19,8 +19,8 @@ var Repo = React.createClass({
     var tag = this.props.tag;
 
     return (
-      <div className="ui vertical padded segment repo" onClick={() => {this.props.onSelected(id, cloneUrl, readmeUrl);}}>
-        <i onClick={() => {this.props.onStar(id);}}><i className="star icon"></i></i>
+      <div className="repo" onClick={() => {this.props.onSelected(id, cloneUrl, readmeUrl);}}>
+        <i onClick={() => {this.props.onStar(id);}}><i className="fa fa-star" aria-hidden={true}></i></i>
         <span>{starLevel}</span>
         &nbsp;
         &nbsp;

@@ -46,15 +46,13 @@ var Readme = React.createClass({
     var selectedRepoReadme = this.props.selectedRepoReadme;
 
     return (
-      <div className="ten wide column">
-        <div className="ui very padded text container segment readme">
-          {(this.renderReadme(selectedRepoReadme))}
+      <div className="readme">
+        {(this.renderReadme(selectedRepoReadme))}
+        <div className="readme-sticky">
           <AddTag onAddTag={this.props.onAddTag}/>
-          <p>
-            <b>Clone:</b> {selectedRepoClone}
-          </p>
-          <div className="readme-md"></div>
+          <b>Clone:</b> {selectedRepoClone}
         </div>
+        <div className="readme-md"></div>
       </div>
     );
   }

@@ -1,7 +1,10 @@
 .repo {
   cursor: pointer;
+  border-bottom: 1px solid gray;
+  border-right: 1px solid gray;
+  padding: 1rem;
 
   &:hover {
-    background-color: #fafafa !important;
+    background-color: #fafafa;
   }
 }
