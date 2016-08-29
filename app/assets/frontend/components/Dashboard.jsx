@@ -127,7 +127,18 @@ var Dashboard = React.createClass({
     var allRepos = this.state.allStarredRepos;
     this.setState({currentStarredRepos: allRepos});
   },
+  handleOnClickTag: function(tag) {
+    var updatedRepos = [];
+    this.state.allStarredRepos.map((repo) => {
+      if (repo.tag === tag) {
+        updatedRepos.push(repo);
+      }
+    });
+
+    this.setState({currentStarredRepos: updatedRepos});
+  },
   render: function() {
+    var allStarredRepos = this.state.allStarredRepos;
     var currentStarredRepos = this.state.currentStarredRepos;
     var selectedRepoCloneUrl = this.state.selectedRepoCloneUrl;
     var selectedRepoReadmeUrl = this.state.selectedRepoReadmeUrl;
@@ -146,7 +157,7 @@ var Dashboard = React.createClass({
         </div>
         <div className="dashboard-view">
           <div className="dashboard-view-container">
-            <Sidebar/>
+            <Sidebar repos={allStarredRepos} onClickTag={this.handleOnClickTag}/>
             <RepoList repos={currentStarredRepos} onStar={this.handleStar} onSelected={this.handleRepo}/>
             {showReadme(repoActivated)}
           </div>
