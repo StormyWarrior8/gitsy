@@ -1,8 +1,23 @@
 .three-stars {
   background: transparent;
-  border: 2px solid $white;
-  border-radius: 3px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-right: 1px solid $kind-of-gray;
+  border-bottom: 1px solid $kind-of-gray;
+  border-top: 1px solid $kind-of-gray;
+  color: $light-gray;
   cursor: pointer;
   align-self: center;
-  padding: .3rem .6rem;
+  padding: .5rem 1rem;
+
+  &:hover {
+    background: $blue;
+    color: $white;
+    border-color: $blue;
+  }
+  &:active {
+    background: $blue;
+    color: $white;
+    border-color: $blue;
+  }
 }

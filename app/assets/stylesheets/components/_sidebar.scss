@@ -3,6 +3,12 @@
   flex-direction: column;
   width: 20%;
   height: 100vh;
-  background: $white;
-  color: $navy-blue;
+  background: $blue;
+  color: $white;
+
+  &-title {
+    text-align: center;
+    border-bottom: 2px solid $white;
+    align-self: center;
+  }
 }

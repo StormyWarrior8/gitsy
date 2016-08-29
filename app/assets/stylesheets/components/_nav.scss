@@ -2,11 +2,14 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: $navy-blue;
-  color: $white;
+  background: $white;
+  color: $dark-gray;
+  font-weight: 500;
+  border-bottom: 1px solid $almost-white;
 
   &-title {
     text-align: center;
+    color: $blue;
   }
 
   &-gitoscope-settings {
@@ -17,10 +20,16 @@
       display: flex;
       flex-direction: column;
       text-align: center;
-      margin-left: 3rem;
+      margin-left: 2.4rem;
+
+      &-reset {
+        cursor: pointer;
+      }
 
       &-components {
         display: flex;
+        border-radius: 5px;
+        position: relative;
       }
     }
   }

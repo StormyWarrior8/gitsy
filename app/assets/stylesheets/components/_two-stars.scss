@@ -1,9 +1,16 @@
 .two-stars {
   background: transparent;
-  border: 2px solid $white;
-  border-radius: 3px;
+  border-right: 1px solid $kind-of-gray;
+  border-bottom: 1px solid $kind-of-gray;
+  border-top: 1px solid $kind-of-gray;
+  color: $light-gray;
   cursor: pointer;
   align-self: center;
-  padding: .3rem .6rem;
-  margin-right: .5rem;
+  padding: .5rem 1rem;
+
+  &:hover {
+    background: $blue;
+    color: $white;
+    border-color: $blue;
+  }
 }

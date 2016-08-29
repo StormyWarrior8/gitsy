@@ -123,6 +123,10 @@ var Dashboard = React.createClass({
 
     this.setState({currentStarredRepos: updatedRepos});
   },
+  resetStars: function() {
+    var allRepos = this.state.allStarredRepos;
+    this.setState({currentStarredRepos: allRepos});
+  },
   render: function() {
     var currentStarredRepos = this.state.currentStarredRepos;
     var selectedRepoCloneUrl = this.state.selectedRepoCloneUrl;
@@ -138,7 +142,7 @@ var Dashboard = React.createClass({
     return (
       <div className="dashboard">
         <div className="dashboard-control">
-          <Nav onSetOneStar={this.setOneStar} onSetTwoStars={this.setTwoStars} onSetThreeStars={this.setThreeStars}/>
+          <Nav onSetOneStar={this.setOneStar} onSetTwoStars={this.setTwoStars} onSetThreeStars={this.setThreeStars} onResetStars={this.resetStars}/>
         </div>
         <div className="dashboard-view">
           <div className="dashboard-view-container">

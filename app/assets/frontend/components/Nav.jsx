@@ -10,7 +10,7 @@ var Nav = React.createClass ({
         <h1 className="nav-title">gitoscope</h1>
         <div className="nav-gitoscope-settings">
           <div className="nav-gitoscope-settings-firstPanel">
-            <p>Star Scope</p>
+            <p>Star Scope | <a className="nav-gitoscope-settings-firstPanel-reset" onClick={() => {this.props.onResetStars();}}>Reset</a></p>
             <div className="nav-gitoscope-settings-firstPanel-components">
               <OneStar onSetOneStar={this.props.onSetOneStar}/>
               <TwoStars onSetTwoStars={this.props.onSetTwoStars}/>

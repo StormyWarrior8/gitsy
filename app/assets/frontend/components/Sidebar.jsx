@@ -4,7 +4,7 @@ var Sidebar = React.createClass({
   render: function() {
     return (
       <div className="sidebar">
-        Sidebar.jsx
+        <h4 className="sidebar-title">Tag Manager</h4>
       </div>
     );
   }

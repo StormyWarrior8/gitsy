@@ -5,3 +5,9 @@ body {
   font-weight: 300;
   overflow-y: hidden;
 }
+
+a {
+  color: $navy-blue;
+  text-decoration: none;
+  border-bottom: 1px dotted $navy-blue;
+}
