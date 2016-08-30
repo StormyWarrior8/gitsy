@@ -17,6 +17,7 @@ module.exports = {
     root: __dirname,
     modulesDirectories: [
       'node_modules',
+      './app/assets/frontend/api',
       './app/assets/frontend/components'
     ],
     extensions: ['', '.js', '.jsx']

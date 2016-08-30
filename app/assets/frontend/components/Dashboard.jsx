@@ -3,6 +3,7 @@ var RepoList = require('RepoList');
 var Readme = require('Readme');
 var Nav = require('Nav');
 var Sidebar = require('Sidebar');
+var RepoAPI = require('RepoAPI');
 
 var Dashboard = React.createClass({
   getInitialState: function() {
@@ -12,10 +13,13 @@ var Dashboard = React.createClass({
       selectedRepoCloneUrl: '',
       selectedRepoReadmeUrl: '',
       selectedRepoId: undefined,
-      repoActivated: false
+      repoActivated: false,
+      searchText: ''
     }
   },
   componentDidMount: function () {
+    /* currentStarredRepos will be the ones showing up in the ui */
+    /* while allStarredRepos will serve to just look up and update currentStarredRepos when search/filter queries occur */
     $.getJSON('/repos', (response) => {this.setState({ currentStarredRepos: response, allStarredRepos: response })})
   },
   handleStar: function(id) {
@@ -159,12 +163,19 @@ var Dashboard = React.createClass({
 
     this.setState({currentStarredRepos: updatedRepos});
   },
+  handleSearch: function(searchText) {
+    this.setState({
+      searchText: searchText.toLowerCase()
+    });
+  },
   render: function() {
     var allStarredRepos = this.state.allStarredRepos;
     var currentStarredRepos = this.state.currentStarredRepos;
     var selectedRepoCloneUrl = this.state.selectedRepoCloneUrl;
     var selectedRepoReadmeUrl = this.state.selectedRepoReadmeUrl;
     var repoActivated = this.state.repoActivated;
+    var searchText = this.state.searchText;
+    var filteredRepos = RepoAPI.filterRepos(currentStarredRepos, searchText);
 
     var showReadme = (active) => {
       if (active == true) {
@@ -180,7 +191,7 @@ var Dashboard = React.createClass({
         <div className="dashboard-view">
           <div className="dashboard-view-container">
             <Sidebar repos={allStarredRepos} onClickTag={this.handleOnClickTag} onClickTagged={this.handleOnClickTagged} onClickUntagged={this.handleOnClickUntagged}/>
-            <RepoList repos={currentStarredRepos} onStar={this.handleStar} onSelected={this.handleRepo}/>
+            <RepoList repos={filteredRepos} onStar={this.handleStar} onSelected={this.handleRepo} onSearch={this.handleSearch}/>
             {showReadme(repoActivated)}
           </div>
         </div>

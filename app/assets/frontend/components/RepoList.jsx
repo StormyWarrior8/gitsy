@@ -1,5 +1,6 @@
 var React = require('react');
 var Repo = require('Repo');
+var RepoSearch = require('RepoSearch');
 
 var RepoList = React.createClass({
   render: function() {
@@ -13,6 +14,9 @@ var RepoList = React.createClass({
 
     return (
       <div className="repo-list">
+        <div className="repo-list-search">
+          <RepoSearch onSearch={this.props.onSearch}/>
+        </div>
         {renderRepos()}
       </div>
     );
