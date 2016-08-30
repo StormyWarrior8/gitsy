@@ -137,6 +137,28 @@ var Dashboard = React.createClass({
 
     this.setState({currentStarredRepos: updatedRepos});
   },
+  handleOnClickTagged: function() {
+    var updatedRepos = [];
+    this.state.allStarredRepos.map((repo) => {
+      if (repo.tag !== null && repo.tag !== "") {
+        updatedRepos.push(repo);
+      }
+    });
+
+    this.setState({currentStarredRepos: updatedRepos});
+  },
+  handleOnClickUntagged: function() {
+    var updatedRepos = [];
+    this.state.allStarredRepos.map((repo) => {
+      if (repo.tag === null) {
+        updatedRepos.push(repo);
+      } else if (repo.tag === "") {
+        updatedRepos.push(repo);
+      }
+    });
+
+    this.setState({currentStarredRepos: updatedRepos});
+  },
   render: function() {
     var allStarredRepos = this.state.allStarredRepos;
     var currentStarredRepos = this.state.currentStarredRepos;
@@ -157,7 +179,7 @@ var Dashboard = React.createClass({
         </div>
         <div className="dashboard-view">
           <div className="dashboard-view-container">
-            <Sidebar repos={allStarredRepos} onClickTag={this.handleOnClickTag}/>
+            <Sidebar repos={allStarredRepos} onClickTag={this.handleOnClickTag} onClickTagged={this.handleOnClickTagged} onClickUntagged={this.handleOnClickUntagged}/>
             <RepoList repos={currentStarredRepos} onStar={this.handleStar} onSelected={this.handleRepo}/>
             {showReadme(repoActivated)}
           </div>
