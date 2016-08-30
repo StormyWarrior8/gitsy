@@ -1,0 +1,20 @@
+.tag {
+  align-self: center;
+  border: 1px solid $white;
+  background: transparent;
+  color: $white;
+  padding: .3rem;
+  margin: .3rem 0;
+  border-radius: 3px;
+  cursor: pointer;
+
+  &-container {
+    text-align: center;
+    font-weight: 500;
+  }
+
+  &:hover {
+    background: $white;
+    color: $blue;
+  }
+}
