@@ -175,7 +175,9 @@ var Dashboard = React.createClass({
     var selectedRepoReadmeUrl = this.state.selectedRepoReadmeUrl;
     var repoActivated = this.state.repoActivated;
     var searchText = this.state.searchText;
+
     var filteredRepos = RepoAPI.filterRepos(currentStarredRepos, searchText);
+    var userAvatar = this.props.userAvatar;
 
     var showReadme = (active) => {
       if (active == true) {
@@ -186,7 +188,7 @@ var Dashboard = React.createClass({
     return (
       <div className="dashboard">
         <div className="dashboard-control">
-          <Nav onSetOneStar={this.setOneStar} onSetTwoStars={this.setTwoStars} onSetThreeStars={this.setThreeStars} onResetStars={this.resetStars}/>
+          <Nav onSetOneStar={this.setOneStar} onSetTwoStars={this.setTwoStars} onSetThreeStars={this.setThreeStars} onResetStars={this.resetStars} userAvatar={userAvatar}/>
         </div>
         <div className="dashboard-view">
           <div className="dashboard-view-container">

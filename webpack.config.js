@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './app/assets/frontend/main.jsx',
+  entry: './app/assets/frontend/App.jsx',
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
@@ -17,6 +17,7 @@ module.exports = {
     root: __dirname,
     modulesDirectories: [
       'node_modules',
+      './app/assets/frontend',
       './app/assets/frontend/api',
       './app/assets/frontend/components'
     ],

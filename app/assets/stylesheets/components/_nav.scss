@@ -7,9 +7,31 @@
   font-weight: 500;
   border-bottom: 1px solid $almost-white;
 
-  &-title {
-    text-align: center;
-    color: $blue;
+  &-top {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &__center {
+      align-self: center;
+      color: $blue;
+    }
+    &__right {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      &-avatar {
+        margin-top: 1.1rem;
+        margin-right: 1.1rem;
+
+        img {
+          width: 2.7rem;
+          border: 2px solid $blue;
+          border-radius: 50%;
+        }
+      }
+    }
   }
 
   &-gitoscope-settings {
