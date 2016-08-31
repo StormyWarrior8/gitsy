@@ -15,9 +15,43 @@ var Nav = React.createClass ({
           </div>
 
           <div className="nav-top__right">
-            <div className="nav-top__right-avatar">
-              <img src={userAvatar}/>
-            </div>
+            <a href="#" id="user-avatar">
+              <div className="nav-top__right-avatar">
+                <img src={userAvatar}/>
+              </div>
+            </a>
+            <ul className="nav-menu-dropdown">
+              <li>
+                <a href="#" id="nav-settings">
+                  <i className="fa fa-cog" aria-hidden={true}></i>
+                  &nbsp;
+                </a>
+              </li>
+              <li>
+                <a href="#" id="nav-story">
+                  <i className="fa fa-medium" aria-hidden={true}></i>
+                  &nbsp;
+                </a>
+              </li>
+              <li>
+                <a href="#" id="nav-contact">
+                  <i className="fa fa-hand-peace-o" aria-hidden={true}></i>
+                  &nbsp;
+                </a>
+              </li>
+              <li>
+                <a href="#" id="nav-feedback">
+                  <i className="fa fa-heart" aria-hidden={true}></i>
+                  &nbsp;
+                </a>
+              </li>
+              <li>
+                <a href="#" id="nav-signout">
+                  <i className="fa fa-power-off" aria-hidden={true}></i>
+                  &nbsp;
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
         <div className="nav-gitoscope-settings">
