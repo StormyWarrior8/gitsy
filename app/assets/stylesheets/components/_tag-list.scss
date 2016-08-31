@@ -1,8 +1,9 @@
 .tag-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   height: 100vh;
-  margin: 2rem 0 10rem 0;
+  margin: 2rem 1rem 10rem 1rem;
+  flex-wrap: wrap;
   padding-bottom: 5rem;
   overflow-y: scroll;
 }
