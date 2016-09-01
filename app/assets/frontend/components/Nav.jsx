@@ -1,6 +1,11 @@
 var React = require('react');
 
 var Nav = React.createClass ({
+  handleSearch: function() {
+    var searchTxt = this.refs.globalSearchTxt.value;
+
+    this.props.onSearch(searchTxt);
+  },
   render: function() {
     var userAvatar = this.props.userAvatar;
 
@@ -14,7 +19,7 @@ var Nav = React.createClass ({
             <div className="AppHeader-rightContainer">
               <label className="AppHeader-user" htmlFor="app-header-dropdown">
                 <i className="fa fa-search" aria-hidden={true}></i>
-                <input className="AppHeader-globalSearch" type="text" placeholder="Your Gitoscope"/>
+                <input className="AppHeader-globalSearch" type="text" ref="globalSearchTxt" placeholder="Your Gitoscope" onChange={this.handleSearch}/>
                 <span className="AppHeader-avatar">
                   <img src={userAvatar}/>
                 </span>

@@ -15,6 +15,7 @@ var Dashboard = React.createClass({
       selectedRepoReadmeUrl: '',
       selectedRepoId: undefined,
       repoActivated: false,
+      globalSearchText: '',
       searchText: ''
     }
   },
@@ -164,6 +165,11 @@ var Dashboard = React.createClass({
 
     this.setState({currentStarredRepos: updatedRepos});
   },
+  handleGlobalSearch: function(searchText) {
+    this.setState({
+      globalSearchText: searchText.toLowerCase()
+    });
+  },
   handleSearch: function(searchText) {
     this.setState({
       searchText: searchText.toLowerCase()
@@ -176,8 +182,9 @@ var Dashboard = React.createClass({
     var selectedRepoReadmeUrl = this.state.selectedRepoReadmeUrl;
     var repoActivated = this.state.repoActivated;
     var searchText = this.state.searchText;
+    var globalSearchText = this.state.globalSearchText;
 
-    var filteredRepos = RepoAPI.filterRepos(currentStarredRepos, searchText);
+    var filteredRepos = RepoAPI.filterRepos(allStarredRepos, currentStarredRepos, globalSearchText, searchText);
     var userName = this.props.userName;
     var userAvatar = this.props.userAvatar;
 
@@ -190,7 +197,7 @@ var Dashboard = React.createClass({
     return (
       <div className="dashboard">
         <div className="dashboard-control">
-          <Nav userAvatar={userAvatar}/>
+          <Nav userAvatar={userAvatar} onSearch={this.handleGlobalSearch}/>
           <Tools userName={userName} onSetOneStar={this.setOneStar} onSetTwoStars={this.setTwoStars} onSetThreeStars={this.setThreeStars} onResetStars={this.resetStars}/>
         </div>
         <div className="dashboard-view">
