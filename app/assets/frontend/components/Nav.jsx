@@ -1,70 +1,66 @@
 var React = require('react');
-var OneStar = require('OneStar');
-var TwoStars = require('TwoStars');
-var ThreeStars = require('ThreeStars');
 
 var Nav = React.createClass ({
   render: function() {
     var userAvatar = this.props.userAvatar;
 
     return (
-      <div className="nav">
-        <div className="nav-top">
-          <div className="nav-top__center">
-            <h1 className="nav-top__center-title">gitoscope</h1>
+      <header className="AppHeader">
+        <div className="AppHeader-container">
+          <div className="AppHeader-left">
+            <h1 className="AppHeader-logo">Gitoscope</h1>
           </div>
-
-          <div className="nav-top__right">
-            <a href="#" id="user-avatar">
-              <div className="nav-top__right-avatar">
-                <img src={userAvatar}/>
-              </div>
-            </a>
-            <ul className="nav-menu-dropdown">
-              <li>
-                <a href="#" id="nav-settings">
-                  <i className="fa fa-cog" aria-hidden={true}></i>
-                  &nbsp;
-                </a>
-              </li>
-              <li>
-                <a href="#" id="nav-story">
-                  <i className="fa fa-medium" aria-hidden={true}></i>
-                  &nbsp;
-                </a>
-              </li>
-              <li>
-                <a href="#" id="nav-contact">
-                  <i className="fa fa-hand-peace-o" aria-hidden={true}></i>
-                  &nbsp;
-                </a>
-              </li>
-              <li>
-                <a href="#" id="nav-feedback">
-                  <i className="fa fa-heart" aria-hidden={true}></i>
-                  &nbsp;
-                </a>
-              </li>
-              <li>
-                <a href="#" id="nav-signout">
-                  <i className="fa fa-power-off" aria-hidden={true}></i>
-                  &nbsp;
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="nav-gitoscope-settings">
-          <div className="nav-gitoscope-settings-firstPanel">
-            <p>Star Scope | <a className="nav-gitoscope-settings-firstPanel-reset" onClick={() => {this.props.onResetStars();}}>Reset</a></p>
-            <div className="nav-gitoscope-settings-firstPanel-components">
-              <OneStar onSetOneStar={this.props.onSetOneStar}/>
-              <TwoStars onSetTwoStars={this.props.onSetTwoStars}/>
-              <ThreeStars onSetThreeStars={this.props.onSetThreeStars}/>
+          <div className="AppHeader-right">
+            <div className="AppHeader-rightContainer">
+              <label className="AppHeader-user" htmlFor="app-header-dropdown">
+                <i className="fa fa-search" aria-hidden={true}></i>
+                <input className="AppHeader-globalSearch" type="text" placeholder="Your Gitoscope"/>
+                <span className="AppHeader-avatar">
+                  <img src={userAvatar}/>
+                </span>
+              </label>
+              <input type="checkbox" id="app-header-dropdown" name="app-header-dropdown" className="AppMenuDrop-check"/>
+              <ul className="AppMenuDrop">
+                <li className="AppMenuDrop-item">
+                  <a href="#">
+                    <i className="fa fa-cog" aria-hidden={true}></i>
+                    &nbsp;
+                    Settings
+                  </a>
+                </li>
+                <li className="AppMenuDrop-item">
+                  <a href="#">
+                    <i className="fa fa-medium" aria-hidden={true}></i>
+                    &nbsp;
+                    The Story
+                  </a>
+                </li>
+                <li className="AppMenuDrop-item">
+                  <a href="#">
+                    <i className="fa fa-hand-peace-o" aria-hidden={true}></i>
+                    &nbsp;
+                    Contact
+                  </a>
+                </li>
+                <li className="AppMenuDrop-item">
+                  <a href="#">
+                    <i className="fa fa-heart" aria-hidden={true}></i>
+                    &nbsp;
+                    Feedback
+                  </a>
+                </li>
+                <li className="AppMenuDrop-item">
+                  <a href="#">
+                    <i className="fa fa-power-off" aria-hidden={true}></i>
+                    &nbsp;
+                    Sign Out
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
+      </header>
     );
   }
 });

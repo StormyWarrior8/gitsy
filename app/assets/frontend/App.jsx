@@ -5,7 +5,7 @@ import ReactOnRails from 'react-on-rails';
 
 class App extends React.Component {
   render() {
-    return <Dashboard userAvatar={this.props.userAvatar}/>;
+    return <Dashboard userName={this.props.userName} userAvatar={this.props.userAvatar}/>;
   }
 }
 

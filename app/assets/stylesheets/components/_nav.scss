@@ -1,135 +1,118 @@
-.nav {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+.AppHeader {
+  color: $blue;
   background: $white;
-  color: $dark-gray;
-  font-weight: 500;
+  height: 66px;
   border-bottom: 1px solid $almost-white;
 
-  &-top {
+  /* app header container */
+  & > div {
+    height: inherit;
     display: flex;
-    flex-direction: column;
-    position: relative;
-
-    &__center {
-      align-self: center;
-      color: $blue;
-    }
-    &__right {
-      position: absolute;
-      top: 0;
-      right: 0;
-
-      &-avatar {
-        margin-top: 1.1rem;
-        margin-right: 1.1rem;
-
-        img {
-          width: 2.7rem;
-          border: 2px solid $blue;
-          border-radius: 50%;
-        }
-      }
-    }
+    justify-content: space-between;
   }
 
-  &-gitoscope-settings {
+  /* app header left items */
+  &-left {
+    padding-left: 1rem;
     display: flex;
-    justify-content: flex-start;
-
-    &-firstPanel {
+    align-items: center;
+  }
+  &-logo {
+    h1 {
       display: flex;
-      flex-direction: column;
-      text-align: center;
-      margin-left: 2.4rem;
-
-      &-reset {
-        cursor: pointer;
-      }
-
-      &-components {
-        display: flex;
-        border-radius: 5px;
-        position: relative;
-      }
     }
   }
-}
 
-// user avatar container (clickable)
-#user-avatar {
-  &:focus {
-    ~ .nav-menu-dropdown {
-      visibility: visible;
-      opacity: 1;
-      filter: none;
-      margin-top: .5rem;
+  /* app header right items */
+  &-right {
+    height: inherit;
+  }
+  &-rightContainer {
+    height: inherit;
+    position: relative;
+  }
+  &-user {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    cursor: pointer;
+    height: inherit;
+    display: flex;
+    align-items: center;
+  }
+  &-globalSearch {
+    border: 2px solid $blue;
+    border-radius: 5px;
+    color: $blue;
+    outline: none;
+    box-sizing: border-box;
+    padding: 8px 20px;
+    margin-left: 7px;
+
+    &::-webkit-input-placeholder {
+      color: $light-gray;
+    }
+    &::-moz-placeholder {
+      color: $light-gray;
+    }
+    &:-ms-input-placeholder {
+      color: $light-gray;
+    }
+    &:-moz-placeholder {
+      color: $light-gray;
     }
   }
-}
+  &-avatar {
+    height: 2.5rem;
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 1px solid $almost-white;
 
-// nav menu dropdown
-.nav-menu-dropdown {
-  position: absolute;
-  top: 100%;
-  right: 10px;
-  z-index: 5;
-  margin-top: -2rem;
-  opacity: 0;
-  transition: .2s;
-  visibility: hidden;
-  background: $blue;
-  list-style-type: none;
-  padding-left: 0;
-
-  li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-
-    &:hover {
-      background: lighten($blue, 5%);
-      text-decoration: none;
+    img {
+      width: 2.5rem;
+      border: 1px solid $white;
+      box-shadow: 0 0 0 2px $blue;
+      border-radius: 50%;
     }
-
+  }
+  .AppMenuDrop-check {
+    display: none;
+  }
+  .AppMenuDrop {
+    position: absolute;
+    top: 100%;
+    right: 1rem;
+    z-index: 5;
+    margin-top: -2rem;
+    opacity: 0;
+    transition: .2s;
+    visibility: hidden;
+    list-style-type: none;
+    /* style the list */
     a {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      max-width: 230px;
+      background: $blue;
       color: $white;
-      text-decoration: none;
-      border-bottom: 0;
+      border-top: 1px solid $white;
+      display: block;
+      padding: 1em 2.8em 1em 2em;
       text-shadow: 0 -1px 0 rgba(0,0,0,.4);
       font-weight: 500;
-      padding: .8rem 3.3rem .8rem 3rem;
-      border-top: 1px solid $white;
       position: relative;
-      display: block;
-      width: 100%;
+      text-decoration: none;
+      border-bottom: 0;
+
+      &:hover {
+        background: lighten($blue, 5%);
+      }
     }
   }
-}
-
-// pseudo-selectors for nav dropdown content
-#nav-settings {
-  &::after {
-    content: 'Settings'
-  }
-}
-#nav-story {
-  &::after {
-    content: 'The Story'
-  }
-}
-#nav-contact {
-  &::after {
-    content: 'Contact'
-  }
-}
-#nav-feedback {
-  &::after {
-    content: 'Feedback'
-  }
-}
-#nav-signout {
-  &::after {
-    content: 'Sign Out'
+  .AppMenuDrop-check:checked ~ .AppMenuDrop {
+    visibility: visible;
+    opacity: 1;
+    filter: none;
+    margin-top: .5rem;
   }
 }
