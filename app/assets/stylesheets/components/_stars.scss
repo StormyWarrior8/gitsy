@@ -1,9 +1,13 @@
 .Stars {
   display: flex;
-  margin-top: 5px;
 }
+
+/* highlight star class */
 .highlightStar {
-  color: $white;
   background: $blue;
   border-color: $blue;
+
+  i {
+    color: $white;
+  }
 }

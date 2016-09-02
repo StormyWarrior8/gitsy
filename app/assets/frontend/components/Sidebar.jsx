@@ -9,14 +9,6 @@ var Sidebar = React.createClass({
           <i className="fa fa-tags" aria-hidden={true}></i>&nbsp;Tag Center
         </h4>
         <div className="sidebar-container">
-          <div className="sidebar-container-filters">
-            <div className="sidebar-container-filters-tagged" id="tagged" onClick={() => {this.props.onClickTagged();}}>
-              Tagged
-            </div>
-            <div className="sidebar-container-filters-untagged" id="untagged" onClick={() => {this.props.onClickUntagged();}}>
-              Untagged
-            </div>
-          </div>
           <TagList repos={this.props.repos} onClickTag={this.props.onClickTag}/>
         </div>
       </div>

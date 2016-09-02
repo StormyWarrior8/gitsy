@@ -375,11 +375,12 @@ var Dashboard = React.createClass({
       <div className="dashboard">
         <div className="dashboard-control">
           <Nav userAvatar={userAvatar} onSearch={this.handleGlobalSearch}/>
-          <Tools userName={userName} onSetOneStar={this.setOneStar} onSetTwoStars={this.setTwoStars} onSetThreeStars={this.setThreeStars} onResetStars={this.resetStars}/>
+          <Tools userName={userName} onSetOneStar={this.setOneStar} onSetTwoStars={this.setTwoStars} onSetThreeStars={this.setThreeStars}
+          onResetStars={this.resetStars} onClickTagged={this.handleOnClickTagged} onClickUntagged={this.handleOnClickUntagged}/>
         </div>
         <div className="dashboard-view">
           <div className="dashboard-view-container">
-            <Sidebar repos={allStarredRepos} onClickTag={this.handleOnClickTag} onClickTagged={this.handleOnClickTagged} onClickUntagged={this.handleOnClickUntagged}/>
+            <Sidebar repos={allStarredRepos} onClickTag={this.handleOnClickTag}/>
             <RepoList repos={filteredRepos} onStar={this.handleStar} onSelected={this.handleRepo} onSearch={this.handleSearch}/>
             {showReadme(repoActivated)}
           </div>

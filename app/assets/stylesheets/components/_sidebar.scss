@@ -15,56 +15,5 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-
-    &-filters {
-      display: flex;
-      border-radius: 5px;
-      position: relative;
-      justify-content: center;
-
-      &-tagged {
-        font-weight: 700;
-        background: transparent;
-        border-top-left-radius: 5px;
-        border-bottom-left-radius: 5px;
-        border-left: 1px solid $white;
-        border-right: 1px solid $white;
-        border-bottom: 1px solid $white;
-        border-top: 1px solid $white;
-        color: $white;
-        cursor: pointer;
-        align-self: center;
-        padding: .5rem 1rem;
-
-        &:hover {
-          background: $white;
-          color: $blue;
-        }
-      }
-      &-untagged {
-        font-weight: 700;
-        background: transparent;
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
-        border-right: 1px solid $white;
-        border-bottom: 1px solid $white;
-        border-top: 1px solid $white;
-        color: $white;
-        cursor: pointer;
-        align-self: center;
-        padding: .5rem 1rem;
-
-        &:hover {
-          background: $white;
-          color: $blue;
-        }
-      }
-    }
   }
-}
-
-.highlightTagFilter {
-  border-color: $white;
-  background: $white;
-  color: $blue;
 }
