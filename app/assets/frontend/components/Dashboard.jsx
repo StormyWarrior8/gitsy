@@ -17,7 +17,6 @@ var Dashboard = React.createClass({
       repoActivated: false,
       globalSearchText: '',
       searchText: '',
-      activeFilters: [], /* instead of this shit, set new states for each filter and set is false or true */
       filterStarOneActivated: false,
       filterStarTwoActivated: false,
       filterStarThreeActivated: false,
