@@ -1,4 +1,4 @@
-.sidebar {
+.Sidebar {
   display: flex;
   flex-direction: column;
   width: 20%;
@@ -9,6 +9,61 @@
   &-title {
     text-align: center;
     align-self: center;
+  }
+
+  &-filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__global {
+      background: transparent;
+      padding: .5rem 1.3rem;
+      border: 1px solid $white;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-right: 1px solid $white;
+      cursor: pointer;
+
+      &:hover {
+        background: $white;
+
+        span {
+          color: $blue;
+        }
+      }
+
+      span {
+        color: $white;
+        vertical-align: middle;
+        font-size: .8rem;
+        font-weight: 600;
+      }
+    }
+    &__local {
+      background: transparent;
+      padding: .5rem 1.5rem;
+      border: 1px solid $white;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-left: 0;
+      cursor: pointer;
+
+      &:hover {
+        background: $white;
+
+        span {
+          color: $blue;
+        }
+      }
+
+      span {
+        color: $white;
+        vertical-align: middle;
+        font-size: .8rem;
+        font-weight: 600;
+      }
+    }
   }
 
   &-container {
