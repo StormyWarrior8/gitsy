@@ -20,8 +20,8 @@ var Dashboard = React.createClass({
     }
   },
   componentDidMount: function () {
-    /* currentStarredRepos will be the ones showing up in the ui */
-    /* while allStarredRepos will serve to just look up and update currentStarredRepos when search/filter queries occur */
+    {/* currentStarredRepos will be the ones showing up in the ui */}
+    {/* while allStarredRepos will serve to just look up and update currentStarredRepos when search/filter queries occur */}
     $.getJSON('/repos', (response) => {this.setState({ currentStarredRepos: response, allStarredRepos: response })})
   },
   handleStar: function(id) {
