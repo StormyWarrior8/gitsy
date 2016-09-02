@@ -10,10 +10,10 @@ var Sidebar = React.createClass({
         </h4>
         <div className="sidebar-container">
           <div className="sidebar-container-filters">
-            <div className="sidebar-container-filters-tagged" onClick={() => {this.props.onClickTagged();}}>
+            <div className="sidebar-container-filters-tagged" id="tagged" onClick={() => {this.props.onClickTagged();}}>
               Tagged
             </div>
-            <div className="sidebar-container-filters-untagged" onClick={() => {this.props.onClickUntagged();}}>
+            <div className="sidebar-container-filters-untagged" id="untagged" onClick={() => {this.props.onClickUntagged();}}>
               Untagged
             </div>
           </div>

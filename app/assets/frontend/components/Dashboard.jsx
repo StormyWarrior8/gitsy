@@ -16,7 +16,13 @@ var Dashboard = React.createClass({
       selectedRepoId: undefined,
       repoActivated: false,
       globalSearchText: '',
-      searchText: ''
+      searchText: '',
+      activeFilters: [], /* instead of this shit, set new states for each filter and set is false or true */
+      filterStarOneActivated: false,
+      filterStarTwoActivated: false,
+      filterStarThreeActivated: false,
+      filterTaggedActivated: false,
+      filterUntaggedActivated: false
     }
   },
   componentDidMount: function () {
@@ -104,10 +110,39 @@ var Dashboard = React.createClass({
   },
   /* filter by one star repos */
   setOneStar: function(one) {
+    $('#star3').removeClass('highlightStar');
+    $('#star2').removeClass('highlightStar');
+    $('#star1').addClass('highlightStar');
+
+    this.setState({
+      filterStarOneActivated: true,
+      filterStarTwoActivated: false,
+      filterStarThreeActivated: false
+    });
+
+    /* add more filters */
+    var untaggedFilter = this.state.filterUntaggedActivated;
+    var taggedFilter = this.state.filterTaggedActivated;
+
     var updatedRepos = [];
+
     this.state.allStarredRepos.map((repo) => {
-      if (repo.star_level === one) {
-        updatedRepos.push(repo);
+      if (taggedFilter === true && untaggedFilter === false) {
+        if (repo.tag !== '' && repo.tag !== null) {
+          if (repo.star_level === 1) {
+            updatedRepos.push(repo);
+          }
+        }
+      } else if (taggedFilter === false && untaggedFilter === true) {
+        if (repo.tag === '' || repo.tag === null) {
+          if (repo.star_level === 1) {
+            updatedRepos.push(repo);
+          }
+        }
+      } else {
+        if (repo.star_level === 1) {
+          updatedRepos.push(repo);
+        }
       }
     });
 
@@ -115,10 +150,39 @@ var Dashboard = React.createClass({
   },
   /* filter by two stars repos */
   setTwoStars: function(two) {
+    $('#star1').removeClass('highlightStar');
+    $('#star3').removeClass('highlightStar');
+    $('#star2').addClass('highlightStar');
+
+    this.setState({
+      filterStarOneActivated: false,
+      filterStarTwoActivated: true,
+      filterStarThreeActivated: false
+    });
+
+    /* add more filters */
+    var untaggedFilter = this.state.filterUntaggedActivated;
+    var taggedFilter = this.state.filterTaggedActivated;
+
     var updatedRepos = [];
+
     this.state.allStarredRepos.map((repo) => {
-      if (repo.star_level === two) {
-        updatedRepos.push(repo);
+      if (taggedFilter === true && untaggedFilter === false) {
+        if (repo.tag !== '' && repo.tag !== null) {
+          if (repo.star_level === 2) {
+            updatedRepos.push(repo);
+          }
+        }
+      } else if (taggedFilter === false && untaggedFilter === true) {
+        if (repo.tag === '' || repo.tag === null) {
+          if (repo.star_level === 2) {
+            updatedRepos.push(repo);
+          }
+        }
+      } else {
+        if (repo.star_level === 2) {
+          updatedRepos.push(repo);
+        }
       }
     });
 
@@ -126,10 +190,39 @@ var Dashboard = React.createClass({
   },
   /* filter by three stars repos */
   setThreeStars: function(three) {
+    $('#star1').removeClass('highlightStar');
+    $('#star2').removeClass('highlightStar');
+    $('#star3').addClass('highlightStar');
+
+    this.setState({
+      filterStarOneActivated: false,
+      filterStarTwoActivated: false,
+      filterStarThreeActivated: true
+    });
+
+    /* add more filters */
+    var untaggedFilter = this.state.filterUntaggedActivated;
+    var taggedFilter = this.state.filterTaggedActivated;
+
     var updatedRepos = [];
+
     this.state.allStarredRepos.map((repo) => {
-      if (repo.star_level === three) {
-        updatedRepos.push(repo);
+      if (taggedFilter === true && untaggedFilter === false) {
+        if (repo.tag !== '' && repo.tag !== null) {
+          if (repo.star_level === 3) {
+            updatedRepos.push(repo);
+          }
+        }
+      } else if (taggedFilter === false && untaggedFilter === true) {
+        if (repo.tag === '' || repo.tag === null) {
+          if (repo.star_level === 3) {
+            updatedRepos.push(repo);
+          }
+        }
+      } else {
+        if (repo.star_level === 3) {
+          updatedRepos.push(repo);
+        }
       }
     });
 
@@ -153,25 +246,93 @@ var Dashboard = React.createClass({
   },
   /* filter by tagged repos */
   handleOnClickTagged: function() {
+    $('#untagged').removeClass('highlightTagFilter');
+    $('#tagged').addClass('highlightTagFilter');
+
+    this.setState({filterUntaggedActivated: false, filterTaggedActivated: true});
+
+    /* add more filters */
+    var oneStarActive = this.state.filterStarOneActivated;
+    var twoStarsActive = this.state.filterStarTwoActivated;
+    var threeStarsActive = this.state.filterStarThreeActivated;
+
     var updatedRepos = [];
-    this.state.allStarredRepos.map((repo) => {
-      if (repo.tag !== null && repo.tag !== "") {
-        updatedRepos.push(repo);
-      }
-    });
+
+    if (oneStarActive === true) {
+      this.state.allStarredRepos.map((repo) => {
+        if (repo.tag !== null && repo.tag !== "" && repo.star_level === 1) {
+          updatedRepos.push(repo);
+        }
+      });
+    } else if (twoStarsActive === true) {
+      this.state.allStarredRepos.map((repo) => {
+        if (repo.tag !== null && repo.tag !== "" && repo.star_level === 2) {
+          updatedRepos.push(repo);
+        }
+      });
+    } else if (threeStarsActive === true) {
+      this.state.allStarredRepos.map((repo) => {
+        if (repo.tag !== null && repo.tag !== "" && repo.star_level === 3) {
+          updatedRepos.push(repo);
+        }
+      });
+    } else {
+      this.state.allStarredRepos.map((repo) => {
+        if (repo.tag !== null && repo.tag !== "") {
+          updatedRepos.push(repo);
+        }
+      });
+    }
 
     this.setState({currentStarredRepos: updatedRepos});
   },
   /* filter by untagged repos */
   handleOnClickUntagged: function() {
+    $('#tagged').removeClass('highlightTagFilter');
+    $('#untagged').addClass('highlightTagFilter');
+
+    this.setState({filterTaggedActivated: false, filterUntaggedActivated: true});
+
+    /* add more filters */
+    var oneStarActive = this.state.filterStarOneActivated;
+    var twoStarsActive = this.state.filterStarTwoActivated;
+    var threeStarsActive = this.state.filterStarThreeActivated;
+
     var updatedRepos = [];
-    this.state.allStarredRepos.map((repo) => {
-      if (repo.tag === null) {
-        updatedRepos.push(repo);
-      } else if (repo.tag === "") {
-        updatedRepos.push(repo);
-      }
-    });
+
+    if (oneStarActive === true) {
+      this.state.allStarredRepos.map((repo) => {
+        if (repo.tag === null && repo.star_level === 1) {
+          updatedRepos.push(repo);
+        } else if (repo.tag === "" && repo.star_level === 1) {
+          updatedRepos.push(repo);
+        }
+      });
+    } else if (twoStarsActive === true) {
+      this.state.allStarredRepos.map((repo) => {
+        if (repo.tag === null && repo.star_level === 2) {
+          updatedRepos.push(repo);
+        } else if (repo.tag === "" && repo.star_level === 2) {
+          updatedRepos.push(repo);
+        }
+      });
+    } else if (threeStarsActive === true) {
+      this.state.allStarredRepos.map((repo) => {
+        if (repo.tag === null && repo.star_level === 3) {
+          updatedRepos.push(repo);
+        } else if (repo.tag === "" && repo.star_level === 3) {
+          updatedRepos.push(repo);
+        }
+      });
+    } else {
+      this.state.allStarredRepos.map((repo) => {
+        if (repo.tag === null) {
+          updatedRepos.push(repo);
+        } else if (repo.tag === "") {
+          updatedRepos.push(repo);
+        }
+      });
+    }
 
     this.setState({currentStarredRepos: updatedRepos});
   },
