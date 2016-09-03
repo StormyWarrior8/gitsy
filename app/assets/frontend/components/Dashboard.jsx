@@ -11,6 +11,7 @@ var Dashboard = React.createClass({
     return {
       allStarredRepos: [],
       currentStarredRepos: [],
+      pastStarredRepos: [],
       selectedRepoCloneUrl: '',
       selectedRepoReadmeUrl: '',
       selectedRepoId: undefined,
@@ -21,13 +22,18 @@ var Dashboard = React.createClass({
       filterStarTwoActivated: false,
       filterStarThreeActivated: false,
       filterTaggedActivated: false,
-      filterUntaggedActivated: false
+      filterUntaggedActivated: false,
+      filterGlobalTagActivated: false,
+      filterLocalTagActivated: false,
+      switchForFilterLocalTagActivated: 0
     }
   },
   componentDidMount: function () {
     /* currentStarredRepos will be the ones showing up in the ui */
     /* while allStarredRepos will serve to just look up and update currentStarredRepos when search/filter queries occur */
-    $.getJSON('/repos', (response) => {this.setState({ currentStarredRepos: response, allStarredRepos: response })})
+    /* and... pastStarredRepos will be used only to store the past repos to let the local tag filter to search based on the filters of the Tools component */
+    /* So pastStarredRepos will only be updated by the Tools component filters */
+    $.getJSON('/repos', (response) => {this.setState({ currentStarredRepos: response, allStarredRepos: response, pastStarredRepos: response })})
   },
   /* handle repo star levels */
   handleStar: function(id) {
@@ -113,6 +119,11 @@ var Dashboard = React.createClass({
     $('#star2').removeClass('highlightStar');
     $('#star1').addClass('highlightStar');
 
+    /* remove the global tag filter highlight/state if it is activated because it will ignore stars but... */
+    /* ... leave local tag filter highlight/state (ux) */
+    $('#globalTag').removeClass('highlightGlobalLocalTagFilter');
+    this.setState({filterGlobalTagActivated: false});
+
     this.setState({
       filterStarOneActivated: true,
       filterStarTwoActivated: false,
@@ -145,13 +156,18 @@ var Dashboard = React.createClass({
       }
     });
 
-    this.setState({currentStarredRepos: updatedRepos});
+    this.setState({currentStarredRepos: updatedRepos, pastStarredRepos: updatedRepos});
   },
   /* filter by two stars repos */
   setTwoStars: function(two) {
     $('#star1').removeClass('highlightStar');
     $('#star3').removeClass('highlightStar');
     $('#star2').addClass('highlightStar');
+
+    /* remove the global tag filter highlight/state if it is activated because it will ignore stars but... */
+    /* ... leave local tag filter highlight/state (ux) */
+    $('#globalTag').removeClass('highlightGlobalLocalTagFilter');
+    this.setState({filterGlobalTagActivated: false});
 
     this.setState({
       filterStarOneActivated: false,
@@ -185,13 +201,18 @@ var Dashboard = React.createClass({
       }
     });
 
-    this.setState({currentStarredRepos: updatedRepos});
+    this.setState({currentStarredRepos: updatedRepos, pastStarredRepos: updatedRepos});
   },
   /* filter by three stars repos */
   setThreeStars: function(three) {
     $('#star1').removeClass('highlightStar');
     $('#star2').removeClass('highlightStar');
     $('#star3').addClass('highlightStar');
+
+    /* remove the global tag filter highlight/state if it is activated because it will ignore stars but... */
+    /* ... leave local tag filter highlight/state (ux) */
+    $('#globalTag').removeClass('highlightGlobalLocalTagFilter');
+    this.setState({filterGlobalTagActivated: false});
 
     this.setState({
       filterStarOneActivated: false,
@@ -225,7 +246,7 @@ var Dashboard = React.createClass({
       }
     });
 
-    this.setState({currentStarredRepos: updatedRepos});
+    this.setState({currentStarredRepos: updatedRepos, pastStarredRepos: updatedRepos});
   },
   /* reset filters and show all repos */
   resetStars: function() {
@@ -234,8 +255,26 @@ var Dashboard = React.createClass({
   },
   /* show repos tagged with a specific tag */
   handleOnClickTag: function(tag) {
+    var reposToPass = [];
     var updatedRepos = [];
-    this.state.allStarredRepos.map((repo) => {
+    var pastRepos = this.state.pastStarredRepos;
+
+    if (this.state.filterGlobalTagActivated === true) {
+      reposToPass = this.state.allStarredRepos;
+    } else if (this.state.filterLocalTagActivated === true) {
+      if (this.state.switchForFilterLocalTagActivated === 0) {
+        reposToPass = this.state.currentStarredRepos;
+        /* turn on the switch for filterLocalTagActivated (1 akin to true) for the next time a tag is clicked w/local tag filter... */
+        /* ... use the pastStarredRepos instead for filtering accordingly */
+        this.setState({switchForFilterLocalTagActivated: 1});
+      } else {
+        reposToPass = pastRepos;
+      }
+    } else {
+      reposToPass = this.state.allStarredRepos;
+    }
+
+    reposToPass.map((repo) => {
       if (repo.tag === tag) {
         updatedRepos.push(repo);
       }
@@ -289,6 +328,10 @@ var Dashboard = React.createClass({
   handleOnClickUntagged: function() {
     $('#tagged').removeClass('highlightTagFilter');
     $('#untagged').addClass('highlightTagFilter');
+
+    /* remove highlight for global/local tag filters as the new filter won't be looking for tags */
+    $('#globalTag').removeClass('highlightGlobalLocalTagFilter');
+    $('#localTag').removeClass('highlightGlobalLocalTagFilter');
 
     this.setState({filterTaggedActivated: false, filterUntaggedActivated: true});
 
@@ -347,6 +390,41 @@ var Dashboard = React.createClass({
       searchText: searchText.toLowerCase()
     });
   },
+  /* global tag filter */
+  handleGlobalTagFilter: function() {
+    $('#localTag').removeClass('highlightGlobalLocalTagFilter');
+    $('#globalTag').addClass('highlightGlobalLocalTagFilter');
+
+    /* we remove the highlights for the Tools component filters here to let know the users that a global tag filter is on */
+    /* so here we don't care about the Tools component filters, we use allStarredRepos to filter repos by selected tag */
+    /* and... we reset the Tools component filters (the state) as well (except for the taggedFilter as this will search for tags) */
+    /* good ux here ^^ */
+    $('#star1').removeClass('highlightStar');
+    $('#star2').removeClass('highlightStar');
+    $('#star3').removeClass('highlightStar');
+    $('#untagged').removeClass('highlightTagFilter');
+    $('#tagged').addClass('highlightTagFilter');
+    this.setState({
+      filterStarOneActivated: false,
+      filterStarTwoActivated: false,
+      filterStarThreeActivated: false,
+      filterTaggedActivated: true,
+      filterUntaggedActivated: false,
+    });
+
+    /* make a switch for filterLocalTagActivated and set it to 0 (false in C style LOL) to let the local tag filter know how to filter repos */
+    this.setState({filterGlobalTagActivated: true, filterLocalTagActivated: false, switchForFilterLocalTagActivated: 0});
+  },
+  /* local tag filter */
+  handleLocalTagFilter: function() {
+    $('#globalTag').removeClass('highlightGlobalLocalTagFilter');
+    $('#localTag').addClass('highlightGlobalLocalTagFilter');
+
+    /* the local tag filter will search for tagged repos anyway! */
+    $('#tagged').addClass('highlightTagFilter');
+
+    this.setState({filterLocalTagActivated: true, filterGlobalTagActivated: false});
+  },
   render: function() {
     {/* state vars */}
     var allStarredRepos = this.state.allStarredRepos;
@@ -380,7 +458,7 @@ var Dashboard = React.createClass({
         </div>
         <div className="dashboard-view">
           <div className="dashboard-view-container">
-            <Sidebar repos={allStarredRepos} onClickTag={this.handleOnClickTag}/>
+            <Sidebar repos={allStarredRepos} onClickTag={this.handleOnClickTag} globalTagFilterOn={this.handleGlobalTagFilter} localTagFilterOn={this.handleLocalTagFilter}/>
             <RepoList repos={filteredRepos} onStar={this.handleStar} onSelected={this.handleRepo} onSearch={this.handleSearch}/>
             {showReadme(repoActivated)}
           </div>

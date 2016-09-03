@@ -9,10 +9,10 @@ var Sidebar = React.createClass({
           <i className="fa fa-tags" aria-hidden={true}></i>&nbsp;Tag Center
         </h4>
         <div className="Sidebar-filters">
-          <div className="Sidebar-filters__global">
+          <div className="Sidebar-filters__global" id="globalTag" onClick={() => {this.props.globalTagFilterOn();}}>
             <span>Global</span>
           </div>
-          <div className="Sidebar-filters__local">
+          <div className="Sidebar-filters__local" id="localTag" onClick={() => {this.props.localTagFilterOn();}}>
             <span>Local</span>
           </div>
         </div>

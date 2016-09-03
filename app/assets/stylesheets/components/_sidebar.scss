@@ -72,3 +72,13 @@
     height: 100vh;
   }
 }
+
+/* highlight global/local tag filter */
+.highlightGlobalLocalTagFilter {
+  background: $white !important;
+  border-color: $white !important;
+
+  span {
+    color: $blue !important;
+  }
+}
