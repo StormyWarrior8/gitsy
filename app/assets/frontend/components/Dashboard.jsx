@@ -421,6 +421,7 @@ var Dashboard = React.createClass({
     $('#localTag').addClass('highlightGlobalLocalTagFilter');
 
     /* the local tag filter will search for tagged repos anyway! */
+    $('#untagged').removeClass('highlightTagFilter');
     $('#tagged').addClass('highlightTagFilter');
 
     this.setState({filterLocalTagActivated: true, filterGlobalTagActivated: false});
