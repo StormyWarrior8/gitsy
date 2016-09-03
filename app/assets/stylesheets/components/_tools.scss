@@ -38,6 +38,7 @@
     display: flex;
     align-items: center;
     margin-left: 5px;
+    margin-right: 5px;
   }
   &-tagged {
     background: transparent;
@@ -96,6 +97,39 @@
       font-weight: 600;
       color: $light-gray;
       padding: .5rem;
+    }
+  }
+
+  /* tool: clear */
+  &-clear {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+
+    &Btn {
+      background: transparent;
+      border: 1px solid $blue;
+      border-radius: 5px;
+      cursor: pointer;
+      align-self: center;
+      padding: .5rem 1.5rem;
+
+      &:hover {
+        background: $blue;
+
+        span {
+          color: $white;
+        }
+      }
+
+      span {
+        text-transform: uppercase;
+        font-size: .7rem;
+        vertical-align: middle;
+        font-weight: 600;
+        color: $blue;
+        padding: .5rem;
+      }
     }
   }
 }

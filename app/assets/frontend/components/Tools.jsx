@@ -24,6 +24,12 @@ var Tools = React.createClass({
               <span>Untagged</span>
             </div>
           </div>
+          {/* clear filters */}
+          <div className="Toolbar-clear">
+            <div className="Toolbar-clearBtn">
+              <span>Clear</span>
+            </div>
+          </div>
         </div>
       </div>
     );
