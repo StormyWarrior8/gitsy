@@ -26,7 +26,7 @@ var Tools = React.createClass({
           </div>
           {/* clear filters */}
           <div className="Toolbar-clear">
-            <div className="Toolbar-clearBtn">
+            <div className="Toolbar-clearBtn" onClick={() => {this.props.clearFilters();}}>
               <span>Clear</span>
             </div>
           </div>

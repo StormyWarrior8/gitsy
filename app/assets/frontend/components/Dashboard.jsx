@@ -426,6 +426,21 @@ var Dashboard = React.createClass({
 
     this.setState({filterLocalTagActivated: true, filterGlobalTagActivated: false});
   },
+  handleClearFilters: function() {
+    /* clean filter highlights */
+    $('#star1, #star2, #star3').removeClass('highlightStar');
+    $('#tagged, #untagged').removeClass('highlightTagFilter');
+
+    /* reset filters state */
+    this.setState({
+      filterStarOneActivated: false,
+      filterStarTwoActivated: false,
+      filterStarThreeActivated: false,
+      filterTaggedActivated: false,
+      filterUntaggedActivated: false,
+      currentStarredRepos: this.state.allStarredRepos
+    });
+  },
   render: function() {
     {/* state vars */}
     var allStarredRepos = this.state.allStarredRepos;
@@ -455,7 +470,8 @@ var Dashboard = React.createClass({
         <div className="dashboard-control">
           <Nav userAvatar={userAvatar} onSearch={this.handleGlobalSearch}/>
           <Tools userName={userName} onSetOneStar={this.setOneStar} onSetTwoStars={this.setTwoStars} onSetThreeStars={this.setThreeStars}
-          onResetStars={this.resetStars} onClickTagged={this.handleOnClickTagged} onClickUntagged={this.handleOnClickUntagged}/>
+          onResetStars={this.resetStars} onClickTagged={this.handleOnClickTagged} onClickUntagged={this.handleOnClickUntagged}
+          clearFilters={this.handleClearFilters}/>
         </div>
         <div className="dashboard-view">
           <div className="dashboard-view-container">
