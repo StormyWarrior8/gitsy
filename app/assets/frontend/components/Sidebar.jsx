@@ -9,7 +9,7 @@ var Sidebar = React.createClass({
           <i className="fa fa-tags" aria-hidden={true}></i>&nbsp;Tag Center
         </h4>
         <div className="Sidebar-container">
-          <TagList repos={this.props.repos} onClickTag={this.props.onClickTag}/>
+          <TagList repos={this.props.repos} onClickTag={this.props.onClickTag} tags={this.props.tags}/>
         </div>
       </div>
     );

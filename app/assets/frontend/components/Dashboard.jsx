@@ -4,6 +4,7 @@ var Readme = require('Readme');
 var Nav = require('Nav');
 var Sidebar = require('Sidebar');
 var RepoAPI = require('RepoAPI');
+var TagAPI = require('TagAPI');
 var Tools = require('Tools');
 
 var Dashboard = React.createClass({
@@ -87,7 +88,7 @@ var Dashboard = React.createClass({
   },
   /* tagging functionality */
   handleAddTag: function(text) {
-    var updatedRepos = this.state.currentStarredRepos.map((repo) => {
+    var updatedRepos = this.state.allStarredRepos.map((repo) => {
       if (repo.id === this.state.selectedRepoId) {
         var tagName = text;
 
@@ -233,11 +234,6 @@ var Dashboard = React.createClass({
     });
 
     this.setState({currentStarredRepos: updatedRepos, pastStarredRepos: updatedRepos});
-  },
-  /* reset filters and show all repos */
-  resetStars: function() {
-    var allRepos = this.state.allStarredRepos;
-    this.setState({currentStarredRepos: allRepos});
   },
   /* show repos tagged with a specific tag */
   handleOnClickTag: function(tag) {
@@ -396,6 +392,9 @@ var Dashboard = React.createClass({
     {/* repo api call */}
     var filteredRepos = RepoAPI.filterRepos(allStarredRepos, currentStarredRepos, globalSearchText, searchText);
 
+    {/* tag api call */}
+    var filteredTags = TagAPI.filterTags(allStarredRepos);
+
     {/* show readme */}
     var showReadme = (active) => {
       if (active == true) {
@@ -408,12 +407,12 @@ var Dashboard = React.createClass({
         <div className="dashboard-control">
           <Nav userAvatar={userAvatar} onSearch={this.handleGlobalSearch}/>
           <Tools userName={userName} onSetOneStar={this.setOneStar} onSetTwoStars={this.setTwoStars} onSetThreeStars={this.setThreeStars}
-          onResetStars={this.resetStars} onClickTagged={this.handleOnClickTagged} onClickUntagged={this.handleOnClickUntagged}
+          onClickTagged={this.handleOnClickTagged} onClickUntagged={this.handleOnClickUntagged}
           clearFilters={this.handleClearFilters}/>
         </div>
         <div className="dashboard-view">
           <div className="dashboard-view-container">
-            <Sidebar repos={allStarredRepos} onClickTag={this.handleOnClickTag} globalTagFilterOn={this.handleGlobalTagFilter} localTagFilterOn={this.handleLocalTagFilter}/>
+            <Sidebar repos={allStarredRepos} onClickTag={this.handleOnClickTag} tags={filteredTags}/>
             <RepoList repos={filteredRepos} onStar={this.handleStar} onSelected={this.handleRepo} onSearch={this.handleSearch}/>
             {showReadme(repoActivated)}
           </div>
