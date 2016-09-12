@@ -361,6 +361,7 @@ var Dashboard = React.createClass({
       searchText: searchText.toLowerCase()
     });
   },
+  /* clear all filters */
   handleClearFilters: function() {
     /* clean filter highlights */
     $('#star1, #star2, #star3').removeClass('highlightStar');
@@ -374,12 +375,33 @@ var Dashboard = React.createClass({
       filterTaggedActivated: false,
       filterUntaggedActivated: false,
       filterIsOn: false,
-      currentStarredRepos: this.state.allStarredRepos
+      currentStarredRepos: this.state.allStarredRepos,
+      selectedLanguage: ''
     });
   },
   /* filter by programming language */
   onHandleLanguage: function(newValue) {
-    this.setState({selectedLanguage: newValue});
+    var updatedRepos = [];
+    if (newValue !== '') {
+      this.setState({selectedLanguage: newValue});
+      if (this.state.filterIsOn === true) {
+        this.state.pastStarredRepos.map((repo) => {
+          if (repo.lang === newValue) {
+            updatedRepos.push(repo);
+          }
+        });
+        this.setState({currentStarredRepos: updatedRepos});
+      } else {
+        this.state.allStarredRepos.map((repo) => {
+          if (repo.lang === newValue) {
+            updatedRepos.push(repo);
+          }
+        });
+        this.setState({currentStarredRepos: updatedRepos});
+      }
+    } else {
+      this.setState({selectedLanguage: newValue, currentStarredRepos: this.state.allStarredRepos});
+    }
   },
   render: function() {
     {/* state vars */}
