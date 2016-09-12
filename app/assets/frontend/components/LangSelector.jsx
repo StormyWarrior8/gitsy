@@ -22,6 +22,7 @@ var LangSelector = React.createClass({
     return (
       <Select
         name="lang-selection"
+        placeholder="Select language"
         value={this.props.selectedLang}
         options={opts}
         onChange={this.setLanguage}
