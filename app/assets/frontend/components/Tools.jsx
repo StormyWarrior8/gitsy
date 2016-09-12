@@ -28,7 +28,7 @@ var Tools = React.createClass({
           </div>
           {/* languages */}
           <div className="Toolbar-langs">
-            <LangSelector langs={langs}/>
+            <LangSelector langs={langs} selectedLang={this.props.selectedLang} handleLanguage={this.props.handleLanguage}/>
           </div>
           {/* clear filters */}
           <div className="Toolbar-clear">

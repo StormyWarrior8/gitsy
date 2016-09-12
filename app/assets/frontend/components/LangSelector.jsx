@@ -1,21 +1,31 @@
 var React = require('react');
-var uuid = require('node-uuid');
+var Select = require('react-select');
 
 var LangSelector = React.createClass({
+  setLanguage: function(val) {
+    if (val === null) {
+      this.props.handleLanguage('');
+    } else {
+      this.props.handleLanguage(val.value);
+    }
+  },
   render: function() {
     var langs = this.props.langs;
 
-    var renderOpts = () => {
-      return langs.map((lang) => {
-        return <option key={uuid()} value={lang}>{lang}</option>;
-      });
-    };
+    var opts = [];
+
+    langs.forEach((lang) => {
+      var obj = { value: lang, label: lang };
+      opts.push(obj);
+    });
 
     return (
-      <select>
-        <option selected>Select Language</option>
-        {renderOpts()}
-      </select>
+      <Select
+        name="lang-selection"
+        value={this.props.selectedLang}
+        options={opts}
+        onChange={this.setLanguage}
+      />
     );
   }
 });

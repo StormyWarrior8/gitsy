@@ -33,6 +33,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "node-uuid": "^1.4.7",
     "react-on-rails": "^6.1.0",
+    "react-select": "^1.0.0-rc.1",
     "webpack": "^1.13.0"
   }
 }

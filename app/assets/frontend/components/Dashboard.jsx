@@ -17,6 +17,7 @@ var Dashboard = React.createClass({
       selectedRepoCloneUrl: '',
       selectedRepoReadmeUrl: '',
       selectedRepoId: undefined,
+      selectedLanguage: '',
       repoActivated: false,
       globalSearchText: '',
       searchText: '',
@@ -376,12 +377,17 @@ var Dashboard = React.createClass({
       currentStarredRepos: this.state.allStarredRepos
     });
   },
+  /* filter by programming language */
+  onHandleLanguage: function(newValue) {
+    this.setState({selectedLanguage: newValue});
+  },
   render: function() {
     {/* state vars */}
     var allStarredRepos = this.state.allStarredRepos;
     var currentStarredRepos = this.state.currentStarredRepos;
     var selectedRepoCloneUrl = this.state.selectedRepoCloneUrl;
     var selectedRepoReadmeUrl = this.state.selectedRepoReadmeUrl;
+    var selectedLanguage = this.state.selectedLanguage;
     var repoActivated = this.state.repoActivated;
     var searchText = this.state.searchText;
     var globalSearchText = this.state.globalSearchText;
@@ -410,7 +416,8 @@ var Dashboard = React.createClass({
       <div className="dashboard">
         <div className="dashboard-control">
           <Nav userAvatar={userAvatar} onSearch={this.handleGlobalSearch}/>
-          <Tools userName={userName} langs={filteredLanguages} onSetOneStar={this.setOneStar} onSetTwoStars={this.setTwoStars} onSetThreeStars={this.setThreeStars}
+          <Tools userName={userName} langs={filteredLanguages} handleLanguage={this.onHandleLanguage} selectedLang={selectedLanguage}
+          onSetOneStar={this.setOneStar} onSetTwoStars={this.setTwoStars} onSetThreeStars={this.setThreeStars}
           onClickTagged={this.handleOnClickTagged} onClickUntagged={this.handleOnClickUntagged}
           clearFilters={this.handleClearFilters}/>
         </div>
