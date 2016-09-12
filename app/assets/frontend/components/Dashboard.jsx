@@ -22,7 +22,8 @@ var Dashboard = React.createClass({
       filterStarTwoActivated: false,
       filterStarThreeActivated: false,
       filterTaggedActivated: false,
-      filterUntaggedActivated: false
+      filterUntaggedActivated: false,
+      filterIsOn: false
     }
   },
   componentDidMount: function () {
@@ -119,7 +120,8 @@ var Dashboard = React.createClass({
     this.setState({
       filterStarOneActivated: true,
       filterStarTwoActivated: false,
-      filterStarThreeActivated: false
+      filterStarThreeActivated: false,
+      filterIsOn: true
     });
 
     /* add more filters */
@@ -159,7 +161,8 @@ var Dashboard = React.createClass({
     this.setState({
       filterStarOneActivated: false,
       filterStarTwoActivated: true,
-      filterStarThreeActivated: false
+      filterStarThreeActivated: false,
+      filterIsOn: true
     });
 
     /* add more filters */
@@ -199,7 +202,8 @@ var Dashboard = React.createClass({
     this.setState({
       filterStarOneActivated: false,
       filterStarTwoActivated: false,
-      filterStarThreeActivated: true
+      filterStarThreeActivated: true,
+      filterIsOn: true
     });
 
     /* add more filters */
@@ -239,11 +243,19 @@ var Dashboard = React.createClass({
   handleOnClickTag: function(tag) {
     var updatedRepos = [];
 
-    this.state.allStarredRepos.map((repo) => {
-      if (repo.tag === tag) {
-        updatedRepos.push(repo);
-      }
-    });
+    if (this.state.filterIsOn === false) {
+      this.state.allStarredRepos.map((repo) => {
+        if (repo.tag === tag) {
+          updatedRepos.push(repo);
+        }
+      });
+    } else {
+      this.state.pastStarredRepos.map((repo) => {
+        if (repo.tag === tag) {
+          updatedRepos.push(repo);
+        }
+      });
+    }
 
     this.setState({currentStarredRepos: updatedRepos});
   },
@@ -252,7 +264,7 @@ var Dashboard = React.createClass({
     $('#untagged').removeClass('highlightTagFilter');
     $('#tagged').addClass('highlightTagFilter');
 
-    this.setState({filterUntaggedActivated: false, filterTaggedActivated: true});
+    this.setState({filterUntaggedActivated: false, filterTaggedActivated: true, filterIsOn: true});
 
     /* add more filters */
     var oneStarActive = this.state.filterStarOneActivated;
@@ -287,14 +299,14 @@ var Dashboard = React.createClass({
       });
     }
 
-    this.setState({currentStarredRepos: updatedRepos});
+    this.setState({currentStarredRepos: updatedRepos, pastStarredRepos: updatedRepos});
   },
   /* filter by untagged repos */
   handleOnClickUntagged: function() {
     $('#tagged').removeClass('highlightTagFilter');
     $('#untagged').addClass('highlightTagFilter');
 
-    this.setState({filterTaggedActivated: false, filterUntaggedActivated: true});
+    this.setState({filterTaggedActivated: false, filterUntaggedActivated: true, filterIsOn: true});
 
     /* add more filters */
     var oneStarActive = this.state.filterStarOneActivated;
@@ -337,7 +349,7 @@ var Dashboard = React.createClass({
       });
     }
 
-    this.setState({currentStarredRepos: updatedRepos});
+    this.setState({currentStarredRepos: updatedRepos, pastStarredRepos: updatedRepos});
   },
   /* global search functionality */
   handleGlobalSearch: function(searchText) {
@@ -363,6 +375,7 @@ var Dashboard = React.createClass({
       filterStarThreeActivated: false,
       filterTaggedActivated: false,
       filterUntaggedActivated: false,
+      filterIsOn: false,
       currentStarredRepos: this.state.allStarredRepos
     });
   },
