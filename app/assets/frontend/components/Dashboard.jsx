@@ -5,6 +5,7 @@ var Nav = require('Nav');
 var Sidebar = require('Sidebar');
 var RepoAPI = require('RepoAPI');
 var TagAPI = require('TagAPI');
+var LangAPI = require('LangAPI');
 var Tools = require('Tools');
 
 var Dashboard = React.createClass({
@@ -395,6 +396,9 @@ var Dashboard = React.createClass({
     {/* tag api call */}
     var filteredTags = TagAPI.filterTags(allStarredRepos);
 
+    {/* lang api call */}
+    var filteredLanguages = LangAPI.filterLangs(allStarredRepos);
+
     {/* show readme */}
     var showReadme = (active) => {
       if (active == true) {
@@ -406,7 +410,7 @@ var Dashboard = React.createClass({
       <div className="dashboard">
         <div className="dashboard-control">
           <Nav userAvatar={userAvatar} onSearch={this.handleGlobalSearch}/>
-          <Tools userName={userName} onSetOneStar={this.setOneStar} onSetTwoStars={this.setTwoStars} onSetThreeStars={this.setThreeStars}
+          <Tools userName={userName} langs={filteredLanguages} onSetOneStar={this.setOneStar} onSetTwoStars={this.setTwoStars} onSetThreeStars={this.setThreeStars}
           onClickTagged={this.handleOnClickTagged} onClickUntagged={this.handleOnClickUntagged}
           clearFilters={this.handleClearFilters}/>
         </div>

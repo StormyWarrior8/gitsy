@@ -1,9 +1,11 @@
 var React = require('react');
 var Stars = require('Stars');
+var LangSelector = require('LangSelector');
 
 var Tools = React.createClass({
   render: function() {
     var userName = this.props.userName;
+    var langs = this.props.langs;
 
     return (
       <div className="Toolbar">
@@ -23,6 +25,10 @@ var Tools = React.createClass({
             <div className="Toolbar-untagged" id="untagged" onClick={() => {this.props.onClickUntagged();}}>
               <span>Untagged</span>
             </div>
+          </div>
+          {/* languages */}
+          <div className="Toolbar-langs">
+            <LangSelector langs={langs}/>
           </div>
           {/* clear filters */}
           <div className="Toolbar-clear">
