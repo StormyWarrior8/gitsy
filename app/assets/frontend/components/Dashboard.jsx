@@ -22,10 +22,7 @@ var Dashboard = React.createClass({
       filterStarTwoActivated: false,
       filterStarThreeActivated: false,
       filterTaggedActivated: false,
-      filterUntaggedActivated: false,
-      filterGlobalTagActivated: false,
-      filterLocalTagActivated: false,
-      switchForFilterLocalTagActivated: 0
+      filterUntaggedActivated: false
     }
   },
   componentDidMount: function () {
@@ -119,11 +116,6 @@ var Dashboard = React.createClass({
     $('#star2').removeClass('highlightStar');
     $('#star1').addClass('highlightStar');
 
-    /* remove the global tag filter highlight/state if it is activated because it will ignore stars but... */
-    /* ... leave local tag filter highlight/state (ux) */
-    $('#globalTag').removeClass('highlightGlobalLocalTagFilter');
-    this.setState({filterGlobalTagActivated: false});
-
     this.setState({
       filterStarOneActivated: true,
       filterStarTwoActivated: false,
@@ -164,11 +156,6 @@ var Dashboard = React.createClass({
     $('#star3').removeClass('highlightStar');
     $('#star2').addClass('highlightStar');
 
-    /* remove the global tag filter highlight/state if it is activated because it will ignore stars but... */
-    /* ... leave local tag filter highlight/state (ux) */
-    $('#globalTag').removeClass('highlightGlobalLocalTagFilter');
-    this.setState({filterGlobalTagActivated: false});
-
     this.setState({
       filterStarOneActivated: false,
       filterStarTwoActivated: true,
@@ -208,11 +195,6 @@ var Dashboard = React.createClass({
     $('#star1').removeClass('highlightStar');
     $('#star2').removeClass('highlightStar');
     $('#star3').addClass('highlightStar');
-
-    /* remove the global tag filter highlight/state if it is activated because it will ignore stars but... */
-    /* ... leave local tag filter highlight/state (ux) */
-    $('#globalTag').removeClass('highlightGlobalLocalTagFilter');
-    this.setState({filterGlobalTagActivated: false});
 
     this.setState({
       filterStarOneActivated: false,
@@ -255,26 +237,9 @@ var Dashboard = React.createClass({
   },
   /* show repos tagged with a specific tag */
   handleOnClickTag: function(tag) {
-    var reposToPass = [];
     var updatedRepos = [];
-    var pastRepos = this.state.pastStarredRepos;
 
-    if (this.state.filterGlobalTagActivated === true) {
-      reposToPass = this.state.allStarredRepos;
-    } else if (this.state.filterLocalTagActivated === true) {
-      if (this.state.switchForFilterLocalTagActivated === 0) {
-        reposToPass = this.state.currentStarredRepos;
-        /* turn on the switch for filterLocalTagActivated (1 akin to true) for the next time a tag is clicked w/local tag filter... */
-        /* ... use the pastStarredRepos instead for filtering accordingly */
-        this.setState({switchForFilterLocalTagActivated: 1});
-      } else {
-        reposToPass = pastRepos;
-      }
-    } else {
-      reposToPass = this.state.allStarredRepos;
-    }
-
-    reposToPass.map((repo) => {
+    this.state.allStarredRepos.map((repo) => {
       if (repo.tag === tag) {
         updatedRepos.push(repo);
       }
@@ -328,10 +293,6 @@ var Dashboard = React.createClass({
   handleOnClickUntagged: function() {
     $('#tagged').removeClass('highlightTagFilter');
     $('#untagged').addClass('highlightTagFilter');
-
-    /* remove highlight for global/local tag filters as the new filter won't be looking for tags */
-    $('#globalTag').removeClass('highlightGlobalLocalTagFilter');
-    $('#localTag').removeClass('highlightGlobalLocalTagFilter');
 
     this.setState({filterTaggedActivated: false, filterUntaggedActivated: true});
 
@@ -389,42 +350,6 @@ var Dashboard = React.createClass({
     this.setState({
       searchText: searchText.toLowerCase()
     });
-  },
-  /* global tag filter */
-  handleGlobalTagFilter: function() {
-    $('#localTag').removeClass('highlightGlobalLocalTagFilter');
-    $('#globalTag').addClass('highlightGlobalLocalTagFilter');
-
-    /* we remove the highlights for the Tools component filters here to let know the users that a global tag filter is on */
-    /* so here we don't care about the Tools component filters, we use allStarredRepos to filter repos by selected tag */
-    /* and... we reset the Tools component filters (the state) as well (except for the taggedFilter as this will search for tags) */
-    /* good ux here ^^ */
-    $('#star1').removeClass('highlightStar');
-    $('#star2').removeClass('highlightStar');
-    $('#star3').removeClass('highlightStar');
-    $('#untagged').removeClass('highlightTagFilter');
-    $('#tagged').addClass('highlightTagFilter');
-    this.setState({
-      filterStarOneActivated: false,
-      filterStarTwoActivated: false,
-      filterStarThreeActivated: false,
-      filterTaggedActivated: true,
-      filterUntaggedActivated: false,
-    });
-
-    /* make a switch for filterLocalTagActivated and set it to 0 (false in C style LOL) to let the local tag filter know how to filter repos */
-    this.setState({filterGlobalTagActivated: true, filterLocalTagActivated: false, switchForFilterLocalTagActivated: 0});
-  },
-  /* local tag filter */
-  handleLocalTagFilter: function() {
-    $('#globalTag').removeClass('highlightGlobalLocalTagFilter');
-    $('#localTag').addClass('highlightGlobalLocalTagFilter');
-
-    /* the local tag filter will search for tagged repos anyway! */
-    $('#untagged').removeClass('highlightTagFilter');
-    $('#tagged').addClass('highlightTagFilter');
-
-    this.setState({filterLocalTagActivated: true, filterGlobalTagActivated: false});
   },
   handleClearFilters: function() {
     /* clean filter highlights */
