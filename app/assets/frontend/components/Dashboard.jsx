@@ -1,12 +1,11 @@
 var React = require('react');
-var RepoList = require('RepoList');
 var Readme = require('Readme');
-var Nav = require('Nav');
-var Sidebar = require('Sidebar');
 var RepoAPI = require('RepoAPI');
 var TagAPI = require('TagAPI');
 var LangAPI = require('LangAPI');
-var Tools = require('Tools');
+var Sidebar = require('Sidebar');
+var RepoTools = require('RepoTools');
+var RepoList = require('RepoList');
 
 var Dashboard = React.createClass({
   getInitialState: function() {
@@ -403,6 +402,9 @@ var Dashboard = React.createClass({
       this.setState({selectedLanguage: newValue, currentStarredRepos: this.state.allStarredRepos});
     }
   },
+  getLevel: function() {
+
+  },
   render: function() {
     {/* state vars */}
     var allStarredRepos = this.state.allStarredRepos;
@@ -434,21 +436,69 @@ var Dashboard = React.createClass({
       }
     };
 
+    var getLevel = () => {
+      var level = undefined;
+      var starsCount = allStarredRepos.length;
+      var nextLevel = undefined;
+
+      // if (starsCount <= 10) {
+      //   level = 'Novice';
+      // } else if (starsCount > 10 && starsCount <= 20) {
+      //   level = 'Starter';
+      // } else if (starsCount > 20 && starsCount <= 50) {
+      //   level = 'Kitten';
+      // } else if (starsCount > 50 && starsCount <= 100) {
+      //   level = 'Cat';
+      // } else if () {
+      //   level = 'Octocat';
+      // } else if () {
+      //   level = 'Apprentice';
+      // } else if () {
+      //   level = 'Pupil Disciple';
+      // } else if () {
+      //   level = 'Hacker';
+      // } else if () {
+      //   level = 'Rockstar';
+      // } else if (starsCount > 100 && starsCount <= 200) {
+      //   level = 'Ninja';
+      // } else if (starsCount > 200 && starsCount <= 300) {
+      //   level = 'Samurai';
+      // } else if () {
+      //   level = 'Padawan';
+      // } else if () {
+      //   level = 'Jedi';
+      // } else if () {
+      //   level = 'Saiyan';
+      // } else if () {
+      //   level = 'Master';
+      // } else () {
+      //   level = 'Legend';
+      // }
+    };
+
     return (
-      <div className="dashboard">
-        <div className="dashboard-control">
-          <Nav userAvatar={userAvatar} onSearch={this.handleGlobalSearch}/>
-          <Tools userName={userName} langs={filteredLanguages} handleLanguage={this.onHandleLanguage} selectedLang={selectedLanguage}
-          onSetOneStar={this.setOneStar} onSetTwoStars={this.setTwoStars} onSetThreeStars={this.setThreeStars}
-          onClickTagged={this.handleOnClickTagged} onClickUntagged={this.handleOnClickUntagged}
-          clearFilters={this.handleClearFilters}/>
+      <div className="Dashboard">
+        <div className="Dashboard-theSidebar">
+          <Sidebar userAvatar={userAvatar} starsCount={allStarredRepos.length}
+          repos={allStarredRepos} onClickTag={this.handleOnClickTag} tags={filteredTags} />
         </div>
-        <div className="dashboard-view">
-          <div className="dashboard-view-container">
-            <Sidebar repos={allStarredRepos} onClickTag={this.handleOnClickTag} tags={filteredTags}/>
-            <RepoList repos={filteredRepos} onStar={this.handleStar} onSelected={this.handleRepo} onSearch={this.handleSearch}/>
-            {showReadme(repoActivated)}
+
+        <div className="Dashboard-theRepoView">
+          <div className="Dashboard-theRepoTools">
+            <RepoTools langs={filteredLanguages} handleLanguage={this.onHandleLanguage}
+            selectedLang={selectedLanguage} onSetOneStar={this.setOneStar} onSetTwoStars={this.setTwoStars}
+            onSetThreeStars={this.setThreeStars} onClickTagged={this.handleOnClickTagged}
+            onClickUntagged={this.handleOnClickUntagged} clearFilters={this.handleClearFilters}
+            onSearch={this.handleSearch} />
           </div>
+
+          <div className="Dashboard-theRepoList">
+            <RepoList repos={filteredRepos} onStar={this.handleStar} onSelected={this.handleRepo} />
+          </div>
+        </div>
+
+        <div className="Dashboard-theReadme">
+          {showReadme(repoActivated)}
         </div>
       </div>
     );

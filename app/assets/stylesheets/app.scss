@@ -3,21 +3,22 @@
 @import 'base/defaults';
 
 // components
-@import 'components/dashboard';
-@import 'components/readme';
-@import 'components/repo-list';
-@import 'components/repo';
-@import 'components/nav';
-@import 'components/one-star';
-@import 'components/two-stars';
-@import 'components/three-stars';
-@import 'components/sidebar';
-@import 'components/tag-list';
-@import 'components/tag';
-@import 'components/repo-search';
-@import 'components/tools';
-@import 'components/stars';
+@import 'components/Dashboard';
+@import 'components/Readme';
+@import 'components/Repo';
+@import 'components/OneStar';
+@import 'components/TwoStars';
+@import 'components/ThreeStars';
+@import 'components/Stars';
+@import 'components/Sidebar';
+@import 'components/TagList';
+@import 'components/RepoSearch';
+@import 'components/RepoList';
+@import 'components/RepoTools';
+@import 'components/LanguageSelector';
 @import 'components/LangSelector';
+@import 'components/AddTag';
+@import 'components/Tag';
 
 // views
 @import 'views/home';

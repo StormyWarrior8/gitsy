@@ -8,8 +8,9 @@ var RepoSearch = React.createClass({
   },
   render: function() {
     return (
-      <div className="repo-search">
-        <input type="text" ref="searchText" placeholder="Search with your gitoscope" onChange={this.handleSearch}/>
+      <div className="RepoSearch">
+        <i className="fa fa-search" ariaHidden={true}></i>
+        <input type="text" ref="searchText" placeholder="Search by name" onChange={this.handleSearch}/>
       </div>
     );
   }

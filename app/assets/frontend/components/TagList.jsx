@@ -14,9 +14,9 @@ var TagList = React.createClass({
     };
 
     return (
-      <div className="tag-list">
+      <ul className="TagList">
         {renderTags()}
-      </div>
+      </ul>
     );
   }
 });

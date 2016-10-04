@@ -1,10 +1,64 @@
-.repo {
+.Repo {
   cursor: pointer;
-  border-bottom: 1px solid gray;
-  border-right: 1px solid gray;
+  border-radius: 5px;
+  margin: 1rem;
+  background-color: $bg1;
   padding: 1rem;
+  transition: .5s;
+
+  &-description {
+    font-size: .9rem;
+  }
 
   &:hover {
-    background-color: #fafafa;
+    background-color: $white;
+  }
+
+  &-details {
+    font-size: .8rem;
+    color: $not-so-black;
+
+    a {
+      color: $main-color;
+
+      &:hover {
+        color: darken($main-color, 10%);
+      }
+    }
+  }
+
+  .pinkStar i {
+    color: $main-color;
+    cursor: pointer;
+
+    &:hover {
+      color: darken($main-color, 10%);
+    }
+  }
+
+  &-tag {
+    display: inline-flex;
+    justify-content: center;
+    text-align: center;
+    align-items: baseline;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    background-color: $main-color;
+    color: white;
+    cursor: pointer;
+    font-size: .9rem;
+
+    &:hover {
+      background-color: darken($main-color, 10%);
+    }
+
+    i {
+      margin-right: 3px;
+    }
+
+    span {
+      font-weight: 800;
+    }
   }
 }

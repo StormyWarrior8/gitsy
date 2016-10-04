@@ -1,0 +1,113 @@
+.AddTag {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  // align-items: baseline;
+
+  &-clone {
+    display: flex;
+    width: 50%;
+    height: 2rem;
+
+    span {
+      color: $black;
+      margin-right: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    input {
+      cursor: pointer;
+      border: 2px solid $border;
+      background: transparent;
+      border-radius: 5px;
+      color: $black;
+      outline: none;
+      box-sizing: border-box;
+      padding: 10px 20px;
+      width: 100%;
+      font-weight: 400;
+      font-size: .8rem;
+
+      &::selection {
+        background: rgba(238, 50, 125, 0.75); /* WebKit/Blink Browsers */
+        color: $white;
+      }
+      &::-moz-selection {
+        background: rgba(238, 50, 125, 0.75); /* Gecko Browsers */
+        color: white;
+      }
+
+      &::-webkit-input-placeholder {
+        color: $light-gray;
+      }
+      &::-moz-placeholder {
+        color: $light-gray;
+      }
+      &:-ms-input-placeholder {
+        color: $light-gray;
+      }
+      &:-moz-placeholder {
+        color: $light-gray;
+      }
+    }
+  }
+
+  i {
+    margin-right: 5px;
+    color: $main-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  form {
+    display: flex;
+    height: 2rem;
+    width: 30%;
+    margin-right: 20px;
+
+    input {
+      border: 2px solid $border;
+      background: transparent;
+      border-radius: 5px;
+      color: $black;
+      outline: none;
+      box-sizing: border-box;
+      padding: 10px 20px;
+      width: 100%;
+      font-weight: 400;
+      font-size: .8rem;
+
+      &::-webkit-input-placeholder {
+        color: $light-gray;
+      }
+      &::-moz-placeholder {
+        color: $light-gray;
+      }
+      &:-ms-input-placeholder {
+        color: $light-gray;
+      }
+      &:-moz-placeholder {
+        color: $light-gray;
+      }
+    }
+
+    button {
+      margin-left: 5px;
+      font-weight: 500;
+      text-transform: uppercase;
+      background-color: $button;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 7px 20px;
+      color: white;
+      border: none;
+
+      &:hover {
+        background-image: $button-hover;
+      }
+    }
+  }
+}

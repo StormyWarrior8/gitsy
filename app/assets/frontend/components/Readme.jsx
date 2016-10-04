@@ -11,7 +11,7 @@ var Readme = React.createClass({
           console.log(marked(data));
         */}
 
-        $('.readme-md').html(marked(data));
+        $('.Readme-md').html(marked(data));
       })
       .catch(function(error) {
         {/* try with readme.md instead of README.md */}
@@ -21,7 +21,7 @@ var Readme = React.createClass({
           .then(function(response) {
             var data = response.data;
 
-            $('.readme-md').html(marked(data));
+            $('.Readme-md').html(marked(data));
           })
           .catch(function (error) {
             {/* try with Readme.md instead of readme.md */}
@@ -31,7 +31,7 @@ var Readme = React.createClass({
               .then(function(response) {
                 var data = response.data;
 
-                $('.readme-md').html(marked(data));
+                $('.Readme-md').html(marked(data));
               })
               .catch(function(error) {
                 {/* throw an error: readme not found! */}
@@ -46,13 +46,14 @@ var Readme = React.createClass({
     var selectedRepoReadme = this.props.selectedRepoReadme;
 
     return (
-      <div className="readme">
-        {(this.renderReadme(selectedRepoReadme))}
-        <div className="readme-sticky">
-          <AddTag onAddTag={this.props.onAddTag}/>
-          <b>Clone:</b> {selectedRepoClone}
+      <div className="Readme">
+        <div className="Readme-theTools">
+            <AddTag onAddTag={this.props.onAddTag} repoClone={selectedRepoClone} />
         </div>
-        <div className="readme-md"></div>
+        <div className="Readme-theReadme">
+          {(this.renderReadme(selectedRepoReadme))}
+          <div className="Readme-md"></div>
+        </div>
       </div>
     );
   }

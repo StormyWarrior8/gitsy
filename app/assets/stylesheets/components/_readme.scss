@@ -1,25 +1,116 @@
-.readme {
+.Readme {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  overflow-y: scroll;
+  height: 100vh;
 
-  img {
-    max-width: 100%;
+  &-theTools {
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 1rem;
   }
 
-  &-sticky {
-    display: flex;
-    width: 100%;
-    justify-content: flex-start;
-    position: fixed;
-    color: $white;
-    background: $navy-blue;
+  &-theReadme {
+    height: 90vh;
+    overflow-y: scroll;
+    margin-top: 1rem;
+    padding: 1rem 3.5rem 3rem 3.5rem;
+    font-size: .8rem;
+
+    &::-webkit-scrollbar {
+      width: 2px;
+    }
+    &::-webkit-scrollbar-track {
+      background: $scrollbar;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $scrollbar-thumb;
+      outline: 1px solid $scrollbar-thumb;
+    }
   }
 
   &-md {
-    width: 100%;
-    word-break: break-all;
-    padding: 1rem;
+    img {
+      max-width: 100%;
+    }
+
+    /* this is temporary (need to implement highlight.js to get the code syntax working) */
+    pre {
+      white-space: normal;
+    }
+
+    h1::selection {
+      background: $main-color; /* WebKit/Blink Browsers */
+      color: $white;
+    }
+    h1::-moz-selection {
+      background: $main-color; /* Gecko Browsers */
+      color: white;
+    }
+    h2::selection {
+      background: $main-color; /* WebKit/Blink Browsers */
+      color: white;
+    }
+    h2::-moz-selection {
+      background: $main-color; /* Gecko Browsers */
+      color: white;
+    }
+    h3::selection {
+      background: $main-color; /* WebKit/Blink Browsers */
+      color: white;
+    }
+    h3::-moz-selection {
+      background: $main-color; /* Gecko Browsers */
+      color: white;
+    }
+    h4::selection {
+      background: $main-color; /* WebKit/Blink Browsers */
+      color: white;
+    }
+    h4::-moz-selection {
+      background: $main-color; /* Gecko Browsers */
+      color: white;
+    }
+    h5::selection {
+      background: $main-color; /* WebKit/Blink Browsers */
+      color: white;
+    }
+    h5::-moz-selection {
+      background: $main-color; /* Gecko Browsers */
+      color: white;
+    }
+    h6::selection {
+      background: $main-color; /* WebKit/Blink Browsers */
+      color: white;
+    }
+    h6::-moz-selection {
+      background: $main-color; /* Gecko Browsers */
+      color: white;
+    }
+    p::selection {
+      background: $main-color; /* WebKit/Blink Browsers */
+      color: white;
+    }
+    p::-moz-selection {
+      background: $main-color; /* Gecko Browsers */
+      color: white;
+    }
+    li::selection {
+      background: $main-color; /* WebKit/Blink Browsers */
+      color: white;
+    }
+    li::-moz-selection {
+      background: $main-color; /* Gecko Browsers */
+      color: white;
+    }
+    a::selection {
+      background: $main-color; /* WebKit/Blink Browsers */
+      color: white;
+    }
+    a::-moz-selection {
+      background: $main-color; /* Gecko Browsers */
+      color: white;
+    }
   }
 }

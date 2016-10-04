@@ -1,0 +1,35 @@
+.RepoSearch {
+  display: flex;
+  align-items: baseline;
+
+  i {
+    margin-right: 5px;
+    color: $main-color;
+  }
+
+  input {
+    border: 2px solid $border;
+    background: transparent;
+    border-radius: 5px;
+    color: $black;
+    outline: none;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    width: 100%;
+    font-weight: 400;
+    font-size: .8rem;
+
+    &::-webkit-input-placeholder {
+      color: $light-gray;
+    }
+    &::-moz-placeholder {
+      color: $light-gray;
+    }
+    &:-ms-input-placeholder {
+      color: $light-gray;
+    }
+    &:-moz-placeholder {
+      color: $light-gray;
+    }
+  }
+}

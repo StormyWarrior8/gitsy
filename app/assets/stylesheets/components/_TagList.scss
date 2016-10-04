@@ -1,0 +1,13 @@
+.TagList {
+  text-align: left;
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  column-gap: 1rem;
+  -webkit-column-gap: 1rem;
+  -moz-column-gap: 1rem;
+  list-style-type: none;
+  padding-left: 0;
+  display: inline-block;
+  white-space: normal;
+}

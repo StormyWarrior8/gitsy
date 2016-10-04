@@ -18,18 +18,32 @@ var Repo = React.createClass({
     var readmeUrl = this.props.readmeUrl;
     var tag = this.props.tag;
 
+    var renderTag = () => {
+      if (tag !== '' && tag !== undefined && tag !== null) {
+        return (
+          <div className="Repo-tag">
+            <i className="fa fa-tag" ariaHidden={true}></i>
+            <span>{tag}</span>
+          </div>
+        );
+      }
+    };
+
     return (
-      <div className="repo" onClick={() => {this.props.onSelected(id, cloneUrl, readmeUrl);}}>
-        <i onClick={() => {this.props.onStar(id);}}><i className="fa fa-star" aria-hidden={true}></i></i>
+      <div className="Repo" onClick={() => {this.props.onSelected(id, cloneUrl, readmeUrl);}}>
+        <span  className="pinkStar" onClick={() => {this.props.onStar(id);}}><i className="fa fa-star" aria-hidden={true}></i></span>
+        &nbsp;
         <span>{starLevel}</span>
         &nbsp;
         &nbsp;
         <span><b>{name}</b></span>
         <br/>
+        <p className="Repo-description">{description}</p>
+        <span className="Repo-details"><i className="fa fa-star" aria-hidden={true}></i> {stargazersCount} &nbsp;&nbsp; <i className="fa fa-code-fork" aria-hidden={true}></i> {forksCount} &nbsp;&nbsp; <i className="fa fa-eye" aria-hidden={true}></i> {watchersCount} &nbsp;&nbsp;
+          <a href={htmlUrl} target="_blank">View on Github</a>
+        </span>
         <br/>
-        <p>{description}</p>
-        <span><i className="fa fa-star" aria-hidden={true}></i> {stargazersCount} &nbsp;&nbsp; <i className="fa fa-code-fork" aria-hidden={true}></i> {forksCount} &nbsp;&nbsp; <i className="fa fa-eye" aria-hidden={true}></i> {watchersCount} &nbsp;&nbsp; <a href={htmlUrl} target="_blank">View on Github</a></span>
-        <p><b>{tag}</b></p>
+        {renderTag()}
       </div>
     );
   }

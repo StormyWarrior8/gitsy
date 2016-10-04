@@ -1,25 +1,100 @@
-.dashboard {
-  margin: 0;
-  padding: 0;
+.Dashboard {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  height: 100vh;
   width: 100%;
+  height: 100vh;
 
-  &-control {
-    display: flex;
-    flex-direction: column;
-    height: 30%;
+  &-theSidebar {
+    width: 100%;
+    background-color: $bg1;
   }
 
-  &-view {
-    display: flex;
-    flex-direction: column;
-    height: 70%;
+  &-theRepoTools {
+    width: 100%;
+    background-color: $bg2;
+  }
 
-    &-container {
+  &-theRepoList {
+    width: 100%;
+    background-color: $bg2;
+  }
+
+  &-theReadme {
+    display: none;
+  }
+}
+@media(min-width: 768px) {
+  .Dashboard {
+    flex-direction: row;
+
+    &-theSidebar {
+      height: 100%;
+      width: 40%;
+    }
+
+    &-theRepoView {
       display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 60%;
+    }
+
+    &-theRepoTools {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+@media(min-width: 900px) {
+  .Dashboard {
+    flex-direction: row;
+
+    &-theSidebar {
+      height: 100%;
+      width: 30%;
+    }
+
+    &-theRepoView {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 70%;
+    }
+
+    &-theRepoTools {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+@media(min-width: 1180px) {
+  .Dashboard {
+    flex-direction: row;
+
+    &-theSidebar {
+      height: 100%;
+      width: 23%;
+    }
+
+    &-theRepoView {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 30%;
+    }
+
+    &-theRepoTools {
+      height: 100%;
+      width: 100%;
+    }
+
+    &-theReadme {
+      display: block;
+      height: 100%;
+      width: 47%;
+      background-color: $bg1;
     }
   }
 }

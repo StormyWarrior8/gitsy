@@ -1,7 +1,31 @@
+/* common */
 $white: #fff;
+$black: #000;
 $dark-gray: #666;
 $navy-blue: #6492BE;
 $blue: #2870B5;
 $kind-of-gray: #a8a4a0;
 $almost-white: #f0f0f0;
 $light-gray: #a8a4a0;
+$not-so-black: #333;
+$so-so-gray: #A2A2A2;
+
+/* backgrounds */
+$bg1: #F7F7F7;
+$bg2: #f3f3f3;
+$bg3: #EDEDED;
+
+/* main palette */
+$main-color: #EE327D;
+$secondary-color: #6c38b2;
+
+/* others */
+$button: $main-color;
+$border: $main-color;
+$scrollbar: #E7E7E7;
+$scrollbar-thumb: $main-color;
+$scrollbar-secondary-thumb: $secondary-color;
+
+/* gradients */
+$logo: -webkit-linear-gradient($main-color, $secondary-color);
+$button-hover: linear-gradient(to right, $main-color, $secondary-color);

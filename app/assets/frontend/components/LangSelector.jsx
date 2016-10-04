@@ -20,13 +20,18 @@ var LangSelector = React.createClass({
     });
 
     return (
-      <Select
-        name="lang-selection"
-        placeholder="Select language"
-        value={this.props.selectedLang}
-        options={opts}
-        onChange={this.setLanguage}
-      />
+      <div className="LanguageSelector">
+        <i className="fa fa-bullseye" ariaHidden={true}></i>
+        <div className="LanguageSelector-select">
+          <Select
+            name="lang-selection"
+            placeholder="Select language"
+            value={this.props.selectedLang}
+            options={opts}
+            onChange={this.setLanguage}
+          />
+        </div>
+      </div>
     );
   }
 });
