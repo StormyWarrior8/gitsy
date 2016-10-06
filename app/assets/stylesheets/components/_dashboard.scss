@@ -98,3 +98,34 @@
     }
   }
 }
+
+
+.loaderContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 40vh;
+  align-items: center;
+
+  p {
+    font-weight: bold;
+  }
+}
+@media(min-width: 768px) {
+  .loaderContainer {
+    height: 60vh;
+  }
+}
+
+
+.readmeInstructions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+
+  p {
+    font-weight: bold;
+  }
+}

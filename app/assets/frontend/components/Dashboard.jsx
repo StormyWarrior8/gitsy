@@ -6,6 +6,19 @@ var LangAPI = require('LangAPI');
 var Sidebar = require('Sidebar');
 var RepoTools = require('RepoTools');
 var RepoList = require('RepoList');
+import {
+  ChasingDots,
+  Circle,
+  CubeGrid,
+  DoubleBounce,
+  FadingCircle,
+  FoldingCube,
+  Pulse,
+  RotatingPlane,
+  ThreeBounce,
+  WanderingCubes,
+  Wave
+} from 'better-react-spinkit';
 
 var Dashboard = React.createClass({
   getInitialState: function() {
@@ -25,15 +38,16 @@ var Dashboard = React.createClass({
       filterStarThreeActivated: false,
       filterTaggedActivated: false,
       filterUntaggedActivated: false,
-      filterIsOn: false
+      filterIsOn: false,
+      isLoading: true
     }
   },
-  componentDidMount: function () {
+  componentWillMount: function() {
     /* currentStarredRepos will be the ones showing up in the ui */
     /* while allStarredRepos will serve to just look up and update currentStarredRepos when search/filter queries occur */
     /* and... pastStarredRepos will be used only to store the past repos to let the local tag filter to search based on the filters of the Tools component */
     /* So pastStarredRepos will only be updated by the Tools component filters */
-    $.getJSON('/repos', (response) => {this.setState({ currentStarredRepos: response, allStarredRepos: response, pastStarredRepos: response })})
+    $.getJSON('/repos', (response) => {this.setState({ currentStarredRepos: response, allStarredRepos: response, pastStarredRepos: response, isLoading: false })});
   },
   /* handle repo star levels */
   handleStar: function(id) {
@@ -415,6 +429,7 @@ var Dashboard = React.createClass({
     var repoActivated = this.state.repoActivated;
     var searchText = this.state.searchText;
     var globalSearchText = this.state.globalSearchText;
+    var isLoading = this.state.isLoading;
 
     {/* props vars */}
     var userName = this.props.userName;
@@ -431,49 +446,51 @@ var Dashboard = React.createClass({
 
     {/* show readme */}
     var showReadme = (active) => {
-      if (active == true) {
+      var random = Math.floor(Math.random() * (5 - 0 + 1)) + 0;
+      var greetings = ['Hey', 'Hi', 'Hello', 'Wassup', 'Welcome', 'Glad to have you here'];
+      var greeting = greetings[random];
+
+      if (active === true) {
         return <Readme selectedRepoClone={selectedRepoCloneUrl} selectedRepoReadme={selectedRepoReadmeUrl} onAddTag={this.handleAddTag}/>;
+      } else if (active === false && isLoading === false && allStarredRepos.length === 0) {
+        return (
+          <div className="readmeInstructions">
+            <p>
+              <p>{greeting} {userName}! <i className="em em-smiley"></i></p>
+              <b>Go to <a href="https://github.com">Github</a> and get some stars! <i className="em em-star2"></i></b>
+            </p>
+          </div>
+        );
+      } else if (active === false && isLoading === false) {
+        return (
+          <div className="readmeInstructions">
+            <p>{greeting} {userName}! <i className="em em-smile"></i></p>
+            <p><i className="em em-point_left"></i> Select a repo to see the readme</p>
+          </div>
+        );
       }
     };
 
-    var getLevel = () => {
-      var level = undefined;
-      var starsCount = allStarredRepos.length;
-      var nextLevel = undefined;
-
-      // if (starsCount <= 10) {
-      //   level = 'Novice';
-      // } else if (starsCount > 10 && starsCount <= 20) {
-      //   level = 'Starter';
-      // } else if (starsCount > 20 && starsCount <= 50) {
-      //   level = 'Kitten';
-      // } else if (starsCount > 50 && starsCount <= 100) {
-      //   level = 'Cat';
-      // } else if () {
-      //   level = 'Octocat';
-      // } else if () {
-      //   level = 'Apprentice';
-      // } else if () {
-      //   level = 'Pupil Disciple';
-      // } else if () {
-      //   level = 'Hacker';
-      // } else if () {
-      //   level = 'Rockstar';
-      // } else if (starsCount > 100 && starsCount <= 200) {
-      //   level = 'Ninja';
-      // } else if (starsCount > 200 && starsCount <= 300) {
-      //   level = 'Samurai';
-      // } else if () {
-      //   level = 'Padawan';
-      // } else if () {
-      //   level = 'Jedi';
-      // } else if () {
-      //   level = 'Saiyan';
-      // } else if () {
-      //   level = 'Master';
-      // } else () {
-      //   level = 'Legend';
-      // }
+    {/* an anonymous function will not work here */}
+    var renderRepoList = () => {
+      if (isLoading) {
+        return (
+          <div className="loaderContainer">
+            <Pulse size={50} color='DeepPink' />
+            <p>Fetching repos...</p>
+          </div>
+        );
+      } else if (isLoading === false && allStarredRepos.length === 0) {
+        return (
+          <div className="loaderContainer">
+            <p>
+              <b>You haven't starred any repos! <i className="em em-disappointed"></i></b>
+            </p>
+          </div>
+        );
+      } else if (isLoading === false && allStarredRepos.length > 0) {
+        return <RepoList repos={filteredRepos} onStar={this.handleStar} onSelected={this.handleRepo} />;
+      }
     };
 
     return (
@@ -493,7 +510,7 @@ var Dashboard = React.createClass({
           </div>
 
           <div className="Dashboard-theRepoList">
-            <RepoList repos={filteredRepos} onStar={this.handleStar} onSelected={this.handleRepo} />
+            {renderRepoList()}
           </div>
         </div>
 
