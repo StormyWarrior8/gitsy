@@ -1,6 +1,13 @@
 .RepoTools {
   display: flex;
   flex-direction: column;
+  height: 40vh;
+  @media(min-height: 900px) {
+    height: 35vh;
+  }
+  @media(min-height: 1200px) {
+    height: 25vh;
+  }
 
   &-theTitle {
     font-size: 2rem;

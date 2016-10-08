@@ -12,6 +12,10 @@ body {
   height: 100%;
   width: 100%;
   overflow: hidden;
+
+  @media (min-width: 2400px) {
+    font-size: 18px;
+  }
 }
 
 a {
