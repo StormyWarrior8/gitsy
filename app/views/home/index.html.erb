@@ -1,24 +1,33 @@
 <div class="home">
-  <div class="home-navbar">
-    <h1 class="home-navbar-title">Gitsy</h1>
-    <ul class="home-navbar-menu">
-      <li class="home-navbar-menu-item"><a href="#">The Story</a></li>
-      <li class="home-navbar-menu-item"><a href="#">About</a></li>
-      <li class="home-navbar-menu-item"><a href="<%= root_url %>auth/github"><i class="fa fa-github" aria-hidden="true"></i> Github Login</a></li>
-    </ul>
-  </div>
+  <section class="homeContainer">
+    <nav class="homeContainer-navbar">
+      <h1>Gitsy</h1>
+      <ul>
+        <!-- <li>The Story</li> -->
+        <a href="<%= root_url %>auth/github">
+          <li id="github-login-btn"><i class="fa fa-github" aria-hidden="true"></i> Login</li>
+        </a>
+      </ul>
+    </nav>
 
-  <h3 class="home-subtitle">Gaze at your Github stars</h3>
-
-  <div class="home-buttons">
-    <div class="home-buttons-learnMoreBtn">Learn More</div>
-    <p class="home-buttons-separator">OR</p>
-    <div class="home-buttons-signUpBtn">Get Started</div>
-  </div>
-
-  <div class="home-hero">
-    <video class="covervid-video" autoplay loop poster="img/video-fallback.png">
-      <source src="https://dl.dropboxusercontent.com/u/95000234/CDN/AstroCat/videos/space.mp4" type="video/mp4"/>
-    </video>
-  </div>
+    <div class="homeContainer-content">
+      <div class="homeContainer-content-left">
+        <h2>Organize your Github Stars like a true Stargazer</h2>
+        <div class="homeContainer-content-left-features">
+          <div>
+            <p><i class="fa fa-star fa-lg" aria-hidden="true"></i> <b>Star Levels</b> - mark your favorite repos</p>
+          </div>
+          <div>
+            <p><i class="fa fa-tag fa-lg" aria-hidden="true"></i> <b>Tag functionality</b> - it's time to categorize</p>
+          </div>
+          <div>
+            <p><i class="fa fa-search fa-lg" aria-hidden="true"></i> <b>Powerful Search & Filters</b> - quickly find any repo </p>
+          </div>
+        </div>
+      </div>
+      <div class="homeContainer-content-right">
+        <img src="https://dl.dropboxusercontent.com/u/95000234/img%20cdn/gitsy/screenshot.png" alt="Gitsy Dashboard" />
+      </div>
+    </div>
+  </section>
 </div>

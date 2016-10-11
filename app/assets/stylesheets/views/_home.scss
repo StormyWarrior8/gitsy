@@ -1,151 +1,147 @@
 .home {
-  width: 100%;
+  color: white;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(to top right, #EE327D, #6c38b2);
 
-  &-navbar {
+  .homeContainer {
     display: flex;
-    justify-content: center;
-    @media(min-width: 768px) {
+    flex-direction: column;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    @media(min-width: 1024px) {
+      margin-left: 8rem;
+      margin-right: 8rem;
+    }
+
+    &-navbar {
+      display: flex;
+      flex-direction: row;
       justify-content: space-between;
-    }
 
-    &-title {
-      text-align: center;
-      color: white;
-      font-size: 3rem;
-      z-index: 9;
-      padding-top: 3rem;
-      font-family: "industry", sans-serif;
-      font-weight: 600;
-    }
-    @media(min-width: 768px) {
-      &-title {
-        text-align: left;
-        top: 0;
-        left: 0;
-        font-size: 3.2rem;
-        margin-left: 3rem;
-        padding-top: 2.7rem;
-      }
-    }
-    @media(min-width: 1200px) {
-      &-title {
-        font-size: 3.3rem;
-        padding-top: 2.8rem;
-      }
-    }
-
-    &-menu {
-      z-index: 9;
-      font-size: 1.2rem;
-      list-style-type: none;
-      padding-top: 3rem;
-      margin-right: 3rem;
-      display: none;
-      @media(min-width: 768px) {
-        display: inline-flex;
+      h1 {
+        margin-top: 3rem;
+        font-size: 2.5rem;
+        text-shadow: 0px 4px 3px rgba(0,0,0,0.4),0px 8px 13px rgba(0,0,0,0.1),0px 18px 23px rgba(0,0,0,0.1);
+        -webkit-text-shadow: 0px 4px 3px rgba(0,0,0,0.4),0px 8px 13px rgba(0,0,0,0.1),0px 18px 23px rgba(0,0,0,0.1);
+        -moz-text-shadow: 0px 4px 3px rgba(0,0,0,0.4),0px 8px 13px rgba(0,0,0,0.1),0px 18px 23px rgba(0,0,0,0.1);
       }
 
-      &-item {
-        margin: 0 .8rem;
+      ul {
+        list-style-type: none;
+        margin-top: 3rem;
+        display: flex;
 
         a {
           color: white;
+        }
 
-          &:hover {
-            border-bottom: 2px solid white;
+        li:first-child {
+          margin-right: 1rem;
+        }
+        li:last-child {
+          margin-left: 1rem;
+          align-self: center;
+        }
+      }
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      margin-top: 3rem;
+      @media(min-width: 1024px) {
+        flex-direction: row;
+      }
+
+      &-left {
+        padding-right: 2rem;
+        align-self: center;
+        margin-bottom: 2rem;
+        @media(min-width: 1024px) {
+          align-self: flex-start;
+        }
+
+        h2 {
+          font-size: 2rem;
+        }
+
+        &-features {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+          @media(min-width: 1024px) {
+            align-items: flex-start;
+          }
+
+          div > p {
+            font-weight: 500;
+          }
+
+          div > p > i {
+            margin-right: 10px;
+          }
+        }
+      }
+      &-right {
+        align-self: center;
+        @media(min-width: 1024px) {
+          align-self: flex-start;
+        }
+
+        img {
+          display: none;
+          border-radius: 2px;
+          -webkit-box-shadow: 0px 4px 3px rgba(0,0,0,0.4),0px 8px 13px rgba(0,0,0,0.1),0px 18px 23px rgba(0,0,0,0.1);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+          -moz-box-shadow:    0px 4px 3px rgba(0,0,0,0.4),0px 8px 13px rgba(0,0,0,0.1),0px 18px 23px rgba(0,0,0,0.1);  /* Firefox 3.5 - 3.6 */
+          box-shadow:         0px 4px 3px rgba(0,0,0,0.4),0px 8px 13px rgba(0,0,0,0.1),0px 18px 23px rgba(0,0,0,0.1);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+        }
+        @media(min-width: 768px) {
+          img {
+            display: block;
+            width: 333px;
+          }
+        }
+        @media(min-width: 820px) {
+          img {
+            display: block;
+            width: 400px;
+          }
+        }
+        @media(min-width: 1024px) {
+          img {
+            display: block;
+            width: 444px;
+          }
+        }
+        @media(min-width: 1200px) {
+          img {
+            display: block;
+            width: 555px;
           }
         }
       }
     }
   }
+}
 
-  &-subtitle {
-    color: white;
-    padding: 0 2rem;
-    font-size: 2.4rem;
-    text-align: center;
-    margin-top: 10rem;
-    z-index: 9;
-    font-family: "industry", sans-serif;
-    font-weight: 400;
-  }
-  @media(min-width: 768px) {
-    &-subtitle {
-      font-size: 2.6rem;
-    }
-  }
-  @media(min-width: 1200px) {
-    &-subtitle {
-      font-size: 2.8rem;
-    }
-  }
 
-  &-buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 1.5rem;
+#github-login-btn {
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 8px 16px;
+  transition: ease .5s;
+  cursor: pointer;
+  font-weight: 500;
 
-    &-separator {
-      color: white;
-      z-index: 9;
-      padding-top: 1rem;
-    }
-
-    &-learnMoreBtn {
-      color: white;
-      z-index: 9;
-      background: transparent;
-      padding: 1rem;
-      font-size: 1.2rem;
-      border: 3px solid white;
-      margin-right: 1rem;
-      border-radius: 2.7px;
-      -webkit-transition: .5s;
-      -moz-transition: .5s;
-      -ms-transition: .5s;
-      -o-transition: .5s;
-      transition: .5s;
-
-      &:hover {
-        background: white;
-        color: #666666;
-        cursor: pointer;
-      }
-    }
-
-    &-signUpBtn {
-      color: white;
-      z-index: 9;
-      background: #00AB6C;
-      padding: 1rem;
-      font-size: 1.2rem;
-      border: 3px solid #00AB6C;
-      margin-left: 1rem;
-      border-radius: 2.7px;
-      -webkit-transition: .5s;
-      -moz-transition: .5s;
-      -ms-transition: .5s;
-      -o-transition: .5s;
-      transition: .5s;
-
-      &:hover {
-        background: #00925c;
-        border-color: #00925c;
-        color: whitesmoke;
-        cursor: pointer;
-      }
-    }
-  }
-
-  &-hero {
-    background: black;
-    // covervid settings
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
+  &:hover {
+    background: white;
+    color: #EE327D;
   }
 }
