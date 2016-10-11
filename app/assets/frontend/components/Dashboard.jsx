@@ -112,7 +112,7 @@ var Dashboard = React.createClass({
         $.ajax({
           url: "/repos",
           type: "post",
-          data: {repo_id: repo.id, tag: tagName},
+          data: {repo_id: repo.id, tag: tagName, star_level: repo.starLevel},
           success: function(response) {
             console.log(response)
           },
