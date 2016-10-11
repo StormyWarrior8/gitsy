@@ -10,8 +10,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "npm run webpack"
+    "heroku-postbuild": "npm run webpack --config ./webpack.config.js --progress --colors"
   },
   "repository": {
     "type": "git",
