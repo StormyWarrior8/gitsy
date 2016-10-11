@@ -7,6 +7,18 @@ var Sidebar = React.createClass({
 
     this.props.onSearch(searchText);
   },
+  logMeOut: function() {
+    $.ajax({
+      url: "/logout",
+      type: "post",
+      success: function(response) {
+        console.log(response)
+      },
+      error: function(xhr) {
+        console.log(xhr)
+      }
+    });
+  },
   render: function() {
     return (
       <div className="Sidebar">
@@ -16,11 +28,13 @@ var Sidebar = React.createClass({
           </div>
 
           <div className="Sidebar-containerOne-settings">
-            <ul>
-              <li>Profile</li>
-              <li>Settings</li>
-              <li>Logout</li>
-            </ul>
+            {/*
+              <ul>
+                <li>Profile</li>
+                <li>Settings</li>
+                <li>Logout</li>
+              </ul>
+            */}
           </div>
 
           <div className="Sidebar-containerOne-profile">
@@ -52,10 +66,11 @@ var Sidebar = React.createClass({
         <div className="Sidebar-containerTwo">
           <div className="Sidebar-containerTwo-extras">
             <ul>
-              <li>The Gitsy Story</li>
-              <li>Contact</li>
-              <li>Feedback</li>
-              <li>Spread Gitsy <i className="fa fa-heart" ariaHidden={true}></i></li>
+              {/* <li>The Gitsy Story</li> */}
+              <a href="https://twitter.com/intent/tweet?text=Hi%20@bntzio%20@gitsyapp%20:" target="_blank"><li>Contact</li></a>
+              <a href="https://twitter.com/intent/tweet?text=Hey%20@bntzio%20@gitsyapp%20I%20think..." target="_blank"><li>Feedback</li></a>
+              <a href="https://twitter.com/intent/tweet?url=http://gitsy.co&text=@gitsyapp%20by%20@bntzio%20is%20the%20ultimate%20@GitHub%20organizer%20for%20stargazers%20-%20Check%20it%20out:&hashtags=GitHub,ProductHunt" target="_blank"><li>Spread Gitsy <i className="fa fa-heart" ariaHidden={true}></i></li></a>
+              <a onClick={this.logMeOut} href="http://gitsy.co">Logout <i className="fa fa-sign-out" ariaHidden={true}></i></a>
             </ul>
           </div>
         </div>

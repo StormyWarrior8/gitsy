@@ -29,6 +29,12 @@
   &-containerTwo {
     &-extras {
       display: none;
+
+      ul {
+        a {
+          color: $kind-of-gray;
+        }
+      }
     }
   }
 }
