@@ -1,0 +1,1854 @@
+/* common */
+/* backgrounds */
+/* main palette */
+/* others */
+/* gradients */
+/* line 1, /Users/hbendev/code/gitoscope/app/assets/stylesheets/base/_defaults.scss */
+html {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 6, /Users/hbendev/code/gitoscope/app/assets/stylesheets/base/_defaults.scss */
+body {
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+  font-family: "proxima-nova", sans-serif;
+  font-weight: 300;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+@media (min-width: 2400px) {
+  /* line 6, /Users/hbendev/code/gitoscope/app/assets/stylesheets/base/_defaults.scss */
+  body {
+    font-size: 18px;
+  }
+}
+
+/* line 21, /Users/hbendev/code/gitoscope/app/assets/stylesheets/base/_defaults.scss */
+a {
+  color: #EE327D;
+  text-decoration: none;
+}
+
+/* line 26, /Users/hbendev/code/gitoscope/app/assets/stylesheets/base/_defaults.scss */
+a:hover {
+  color: #db1262;
+}
+
+/* line 1, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+.Dashboard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+/* line 7, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+.Dashboard-theSidebar {
+  width: 100%;
+  background-color: #F7F7F7;
+}
+/* line 12, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+.Dashboard-theRepoTools {
+  width: 100%;
+  background-color: #f3f3f3;
+}
+/* line 17, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+.Dashboard-theRepoList {
+  width: 100%;
+  background-color: #f3f3f3;
+}
+/* line 22, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+.Dashboard-theReadme {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  /* line 27, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+  .Dashboard {
+    flex-direction: row;
+  }
+  /* line 30, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+  .Dashboard-theSidebar {
+    height: 100%;
+    width: 40%;
+  }
+  /* line 35, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+  .Dashboard-theRepoView {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 60%;
+  }
+  /* line 42, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+  .Dashboard-theRepoTools {
+    height: 100%;
+    width: 100%;
+  }
+}
+@media (min-width: 900px) {
+  /* line 50, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+  .Dashboard {
+    flex-direction: row;
+  }
+  /* line 53, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+  .Dashboard-theSidebar {
+    height: 100%;
+    width: 30%;
+  }
+  /* line 58, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+  .Dashboard-theRepoView {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 70%;
+  }
+  /* line 65, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+  .Dashboard-theRepoTools {
+    height: 100%;
+    width: 100%;
+  }
+}
+@media (min-width: 1180px) {
+  /* line 73, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+  .Dashboard {
+    flex-direction: row;
+  }
+  /* line 76, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+  .Dashboard-theSidebar {
+    height: 100%;
+    width: 23%;
+  }
+  /* line 81, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+  .Dashboard-theRepoView {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 30%;
+  }
+  /* line 88, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+  .Dashboard-theRepoTools {
+    height: 100%;
+    width: 100%;
+  }
+  /* line 93, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+  .Dashboard-theReadme {
+    display: block;
+    height: 100%;
+    width: 47%;
+    background-color: #F7F7F7;
+  }
+}
+/* line 103, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+.loaderContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 40vh;
+  align-items: center;
+}
+/* line 110, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+.loaderContainer p {
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  /* line 115, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+  .loaderContainer {
+    height: 60vh;
+  }
+}
+/* line 121, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+.readmeInstructions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+}
+/* line 128, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Dashboard.scss */
+.readmeInstructions p {
+  font-weight: bold;
+}
+
+/* line 1, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+/* line 6, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-theTools {
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 1rem;
+}
+/* line 14, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-theReadme {
+  height: 90vh;
+  overflow-y: scroll;
+  margin-top: 1rem;
+  padding: 1rem 3.5rem 3rem 3.5rem;
+  font-size: .8rem;
+}
+/* line 21, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-theReadme::-webkit-scrollbar {
+  width: 2px;
+}
+/* line 24, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-theReadme::-webkit-scrollbar-track {
+  background: #E7E7E7;
+}
+/* line 27, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-theReadme::-webkit-scrollbar-thumb {
+  background-color: #EE327D;
+  outline: 1px solid #EE327D;
+}
+/* line 33, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-md {
+  /* this is temporary (need to implement highlight.js to get the code syntax working) */
+}
+/* line 34, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-md img {
+  max-width: 100%;
+}
+/* line 39, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-md pre {
+  white-space: normal;
+}
+/* line 43, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-md h1::selection {
+  background: #EE327D;
+  /* WebKit/Blink Browsers */
+  color: #fff;
+}
+/* line 47, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-md h1::-moz-selection {
+  background: #EE327D;
+  /* Gecko Browsers */
+  color: white;
+}
+/* line 51, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-md h2::selection {
+  background: #EE327D;
+  /* WebKit/Blink Browsers */
+  color: white;
+}
+/* line 55, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-md h2::-moz-selection {
+  background: #EE327D;
+  /* Gecko Browsers */
+  color: white;
+}
+/* line 59, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-md h3::selection {
+  background: #EE327D;
+  /* WebKit/Blink Browsers */
+  color: white;
+}
+/* line 63, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-md h3::-moz-selection {
+  background: #EE327D;
+  /* Gecko Browsers */
+  color: white;
+}
+/* line 67, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-md h4::selection {
+  background: #EE327D;
+  /* WebKit/Blink Browsers */
+  color: white;
+}
+/* line 71, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-md h4::-moz-selection {
+  background: #EE327D;
+  /* Gecko Browsers */
+  color: white;
+}
+/* line 75, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-md h5::selection {
+  background: #EE327D;
+  /* WebKit/Blink Browsers */
+  color: white;
+}
+/* line 79, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-md h5::-moz-selection {
+  background: #EE327D;
+  /* Gecko Browsers */
+  color: white;
+}
+/* line 83, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-md h6::selection {
+  background: #EE327D;
+  /* WebKit/Blink Browsers */
+  color: white;
+}
+/* line 87, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-md h6::-moz-selection {
+  background: #EE327D;
+  /* Gecko Browsers */
+  color: white;
+}
+/* line 91, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-md p::selection {
+  background: #EE327D;
+  /* WebKit/Blink Browsers */
+  color: white;
+}
+/* line 95, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-md p::-moz-selection {
+  background: #EE327D;
+  /* Gecko Browsers */
+  color: white;
+}
+/* line 99, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-md li::selection {
+  background: #EE327D;
+  /* WebKit/Blink Browsers */
+  color: white;
+}
+/* line 103, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-md li::-moz-selection {
+  background: #EE327D;
+  /* Gecko Browsers */
+  color: white;
+}
+/* line 107, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-md a::selection {
+  background: #EE327D;
+  /* WebKit/Blink Browsers */
+  color: white;
+}
+/* line 111, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Readme.scss */
+.Readme-md a::-moz-selection {
+  background: #EE327D;
+  /* Gecko Browsers */
+  color: white;
+}
+
+/* line 1, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Repo.scss */
+.Repo {
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 1rem;
+  background-color: #F7F7F7;
+  padding: 1rem;
+  transition: .5s;
+}
+/* line 9, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Repo.scss */
+.Repo-description {
+  font-size: .9rem;
+}
+/* line 13, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Repo.scss */
+.Repo:hover {
+  background-color: #fff;
+}
+/* line 17, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Repo.scss */
+.Repo-details {
+  font-size: .8rem;
+  color: #333;
+}
+/* line 21, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Repo.scss */
+.Repo-details a {
+  color: #EE327D;
+}
+/* line 24, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Repo.scss */
+.Repo-details a:hover {
+  color: #db1262;
+}
+/* line 30, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Repo.scss */
+.Repo .pinkStar i {
+  color: #EE327D;
+  cursor: pointer;
+}
+/* line 34, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Repo.scss */
+.Repo .pinkStar i:hover {
+  color: #db1262;
+}
+/* line 39, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Repo.scss */
+.Repo-tag {
+  display: inline-flex;
+  justify-content: center;
+  text-align: center;
+  align-items: baseline;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  background-color: #EE327D;
+  color: white;
+  cursor: pointer;
+  font-size: .9rem;
+}
+/* line 52, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Repo.scss */
+.Repo-tag:hover {
+  background-color: #db1262;
+}
+/* line 56, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Repo.scss */
+.Repo-tag i {
+  margin-right: 3px;
+}
+/* line 60, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Repo.scss */
+.Repo-tag span {
+  font-weight: 800;
+}
+
+/* line 1, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_OneStar.scss */
+.OneStar {
+  vertical-align: middle;
+  background: transparent;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-left: 2px solid #EE327D;
+  border-right: 2px solid #EE327D;
+  border-bottom: 2px solid #EE327D;
+  border-top: 2px solid #EE327D;
+  cursor: pointer;
+  align-self: center;
+  padding: 6px 12px;
+}
+/* line 14, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_OneStar.scss */
+.OneStar:hover {
+  background: #EE327D;
+  border-color: #EE327D;
+}
+/* line 18, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_OneStar.scss */
+.OneStar:hover i {
+  color: #fff;
+}
+/* line 23, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_OneStar.scss */
+.OneStar i {
+  font-size: .7rem;
+  vertical-align: middle;
+  font-weight: 600;
+  color: #EE327D;
+}
+
+/* line 1, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_TwoStars.scss */
+.TwoStars {
+  vertical-align: middle;
+  background: transparent;
+  border-right: 2px solid #EE327D;
+  border-bottom: 2px solid #EE327D;
+  border-top: 2px solid #EE327D;
+  cursor: pointer;
+  align-self: center;
+  padding: 6px 12px;
+}
+/* line 11, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_TwoStars.scss */
+.TwoStars:hover {
+  background: #EE327D;
+  border-color: #EE327D;
+}
+/* line 15, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_TwoStars.scss */
+.TwoStars:hover i {
+  color: #fff;
+}
+/* line 20, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_TwoStars.scss */
+.TwoStars i {
+  font-size: .7rem;
+  vertical-align: middle;
+  font-weight: 600;
+  color: #EE327D;
+}
+
+/* line 1, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_ThreeStars.scss */
+.ThreeStars {
+  vertical-align: middle;
+  background: transparent;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-right: 2px solid #EE327D;
+  border-bottom: 2px solid #EE327D;
+  border-top: 2px solid #EE327D;
+  cursor: pointer;
+  align-self: center;
+  padding: 6px 12px;
+}
+/* line 13, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_ThreeStars.scss */
+.ThreeStars:hover {
+  background: #EE327D;
+  border-color: #EE327D;
+}
+/* line 17, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_ThreeStars.scss */
+.ThreeStars:hover i {
+  color: #fff;
+}
+/* line 22, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_ThreeStars.scss */
+.ThreeStars i {
+  font-size: .7rem;
+  vertical-align: middle;
+  font-weight: 600;
+  color: #EE327D;
+}
+
+/* line 1, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Stars.scss */
+.Stars {
+  display: flex;
+}
+
+/* highlight star class */
+/* line 6, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Stars.scss */
+.highlightStar {
+  background: #EE327D;
+  border-color: #EE327D;
+}
+/* line 10, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Stars.scss */
+.highlightStar i {
+  color: #fff;
+}
+
+/* line 1, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+.Sidebar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+/* line 8, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+.Sidebar-containerOne-logo h1 {
+  font-size: 2.5rem;
+  background: -webkit-linear-gradient(#EE327D, #6c38b2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* line 16, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+.Sidebar-containerOne-settings {
+  display: none;
+}
+/* line 20, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+.Sidebar-containerOne-profile {
+  display: none;
+}
+/* line 24, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+.Sidebar-containerOne-tagCenter {
+  display: none;
+}
+/* line 30, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+.Sidebar-containerTwo-extras {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  /* line 36, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar {
+    flex-direction: column;
+    height: 100vh;
+  }
+  /* line 40, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+  }
+  /* line 45, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-logo {
+    align-self: center;
+  }
+  /* line 48, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-logo h1 {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 768px) and (min-width: 2400px) {
+  /* line 48, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-logo h1 {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 768px) {
+  /* line 57, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-settings {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: .9rem;
+    font-weight: 500;
+  }
+  /* line 64, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-settings ul {
+    list-style-type: none;
+    display: inline-flex;
+    padding-left: 0;
+  }
+  /* line 69, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-settings ul li {
+    margin: 0 10px;
+    transition: .2s;
+    cursor: pointer;
+  }
+  /* line 74, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-settings ul li:hover {
+    color: #6c38b2;
+  }
+  /* line 79, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-settings ul:first-child {
+    margin-left: 0;
+  }
+  /* line 83, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-settings ul:last-child {
+    margin-right: 0;
+  }
+  /* line 89, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-profile {
+    display: flex;
+    flex-direction: row;
+    margin-left: 1.5rem;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  /* line 96, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-profile img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    box-shadow: 0 0 0 2.5px #EE327D;
+  }
+  /* line 104, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-profile-details {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  /* line 111, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-tagCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+  }
+  /* line 119, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-tagCenter-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+  }
+}
+@media (min-width: 768px) and (min-width: 1200px) {
+  /* line 119, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-tagCenter-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (min-width: 768px) {
+  /* line 129, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-tagCenter-container-title {
+    font-size: 1rem;
+    font-family: 'proxima-nova', sans-serif;
+    font-weight: bold;
+  }
+  /* line 135, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-tagCenter-container-search {
+    display: flex;
+    align-items: baseline;
+    margin-left: 10px;
+  }
+}
+@media (min-width: 768px) and (min-width: 1200px) {
+  /* line 135, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-tagCenter-container-search {
+    margin: .5rem 1rem 0 0;
+  }
+}
+@media (min-width: 768px) {
+  /* line 144, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-tagCenter-container-search i {
+    margin-right: 5px;
+    color: #EE327D;
+  }
+  /* line 149, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-tagCenter-container-search input {
+    border: 2px solid #EE327D;
+    background: transparent;
+    border-radius: 5px;
+    color: #000;
+    outline: none;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    width: 6rem;
+    font-weight: 400;
+    font-size: .8rem;
+  }
+  /* line 161, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-tagCenter-container-search input::-webkit-input-placeholder {
+    color: #a8a4a0;
+  }
+  /* line 164, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-tagCenter-container-search input::-moz-placeholder {
+    color: #a8a4a0;
+  }
+  /* line 167, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-tagCenter-container-search input:-ms-input-placeholder {
+    color: #a8a4a0;
+  }
+  /* line 170, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-tagCenter-container-search input:-moz-placeholder {
+    color: #a8a4a0;
+  }
+  /* line 177, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-tagCenter-wrapper {
+    height: 100%;
+  }
+  /* line 180, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-tagCenter-wrapper-tags {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 30vh;
+    font-weight: 800;
+    font-size: .9rem;
+    color: #EE327D;
+    overflow-y: scroll;
+    white-space: normal;
+  }
+  /* line 192, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-tagCenter-wrapper-tags::-webkit-scrollbar {
+    width: 2px;
+  }
+  /* line 195, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-tagCenter-wrapper-tags::-webkit-scrollbar-track {
+    background: #E7E7E7;
+  }
+  /* line 198, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerOne-tagCenter-wrapper-tags::-webkit-scrollbar-thumb {
+    background-color: #EE327D;
+    outline: 1px solid #EE327D;
+  }
+  /* line 208, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerTwo {
+    flex: 1;
+    height: 20vh;
+    background-color: #EDEDED;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  /* line 216, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerTwo-extras {
+    display: flex;
+    flex-direction: row;
+    color: #a8a4a0;
+    font-weight: 400;
+    font-size: .9rem;
+    justify-content: flex-start;
+    margin-left: 2rem;
+  }
+  /* line 225, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerTwo-extras ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  /* line 229, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerTwo-extras ul li {
+    cursor: pointer;
+    margin: 3px 0;
+  }
+  /* line 233, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerTwo-extras ul li:hover {
+    color: #94908b;
+  }
+  /* line 237, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerTwo-extras ul li:first-child {
+    margin: 0;
+  }
+  /* line 240, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Sidebar.scss */
+  .Sidebar-containerTwo-extras ul li:last-child {
+    margin: 0;
+  }
+}
+/* line 1, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_TagList.scss */
+.TagList {
+  text-align: left;
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  column-gap: 1rem;
+  -webkit-column-gap: 1rem;
+  -moz-column-gap: 1rem;
+  list-style-type: none;
+  padding-left: 0;
+  display: inline-block;
+  white-space: normal;
+}
+
+@media (min-width: 2400px) {
+  /* line 15, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_TagList.scss */
+  .TagList {
+    columns: 3;
+    -webkit-columns: 3;
+    -moz-columns: 3;
+  }
+}
+/* line 1, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoSearch.scss */
+.RepoSearch {
+  display: flex;
+  align-items: baseline;
+}
+/* line 5, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoSearch.scss */
+.RepoSearch i {
+  margin-right: 5px;
+  color: #EE327D;
+}
+/* line 10, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoSearch.scss */
+.RepoSearch input {
+  border: 2px solid #EE327D;
+  background: transparent;
+  border-radius: 5px;
+  color: #000;
+  outline: none;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  width: 100%;
+  font-weight: 400;
+  font-size: .8rem;
+}
+/* line 22, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoSearch.scss */
+.RepoSearch input::-webkit-input-placeholder {
+  color: #a8a4a0;
+}
+/* line 25, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoSearch.scss */
+.RepoSearch input::-moz-placeholder {
+  color: #a8a4a0;
+}
+/* line 28, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoSearch.scss */
+.RepoSearch input:-ms-input-placeholder {
+  color: #a8a4a0;
+}
+/* line 31, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoSearch.scss */
+.RepoSearch input:-moz-placeholder {
+  color: #a8a4a0;
+}
+
+/* line 1, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoList.scss */
+.RepoList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 60vh;
+}
+@media (min-height: 900px) {
+  /* line 1, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoList.scss */
+  .RepoList {
+    height: 65vh;
+  }
+}
+@media (min-height: 1200px) {
+  /* line 1, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoList.scss */
+  .RepoList {
+    height: 75vh;
+  }
+}
+/* line 14, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoList.scss */
+.RepoList-theList {
+  margin-top: 1rem;
+  height: 55vh;
+}
+/* line 18, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoList.scss */
+.RepoList-theList-container {
+  height: 100%;
+  overflow-y: scroll;
+}
+/* line 22, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoList.scss */
+.RepoList-theList-container::-webkit-scrollbar {
+  width: 2px;
+}
+/* line 25, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoList.scss */
+.RepoList-theList-container::-webkit-scrollbar-track {
+  background: #E7E7E7;
+}
+/* line 28, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoList.scss */
+.RepoList-theList-container::-webkit-scrollbar-thumb {
+  background-color: #EE327D;
+  outline: 1px solid #EE327D;
+}
+@media (min-width: 2200px) {
+  /* line 35, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoList.scss */
+  .RepoList-theList {
+    height: 66vh;
+  }
+}
+
+/* line 1, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+.RepoTools {
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+}
+@media (min-height: 900px) {
+  /* line 1, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+  .RepoTools {
+    height: 35vh;
+  }
+}
+@media (min-height: 1200px) {
+  /* line 1, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+  .RepoTools {
+    height: 25vh;
+  }
+}
+/* line 12, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+.RepoTools-theTitle {
+  font-size: 2rem;
+  font-family: 'Montserrat', 'proxima-nova', sans-serif;
+  font-weight: 700;
+  margin-left: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+/* line 21, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+.RepoTools-theSearchBoxes {
+  margin: 0 .7rem;
+}
+/* line 24, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+.RepoTools-theSearchBoxes .LanguageSelector {
+  margin-top: 15px;
+}
+/* line 29, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+.RepoTools-theTagsAndStars {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+@media (min-width: 1180px) {
+  /* line 35, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+  .RepoTools-theTagsAndStars {
+    margin-left: 1rem;
+  }
+}
+/* line 40, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+.RepoTools-taggedUntagged {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+/* line 45, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+.RepoTools-taggedUntagged--tagged {
+  background: transparent;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-left: 2px solid #EE327D;
+  border-right: 2px solid #EE327D;
+  border-bottom: 2px solid #EE327D;
+  border-top: 2px solid #EE327D;
+  cursor: pointer;
+  align-self: center;
+  padding: 6px 12px;
+}
+/* line 57, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+.RepoTools-taggedUntagged--tagged:hover {
+  background: #EE327D;
+  border-color: #EE327D;
+}
+/* line 61, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+.RepoTools-taggedUntagged--tagged:hover span {
+  color: #fff;
+}
+/* line 66, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+.RepoTools-taggedUntagged--tagged span {
+  text-transform: uppercase;
+  font-size: .7rem;
+  vertical-align: middle;
+  font-weight: 600;
+  color: #EE327D;
+  padding: .5rem;
+}
+/* line 76, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+.RepoTools-taggedUntagged--untagged {
+  background: transparent;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-right: 2px solid #EE327D;
+  border-bottom: 2px solid #EE327D;
+  border-top: 2px solid #EE327D;
+  cursor: pointer;
+  align-self: center;
+  padding: 6px 12px;
+}
+/* line 87, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+.RepoTools-taggedUntagged--untagged:hover {
+  background: #EE327D;
+  border-color: #EE327D;
+}
+/* line 91, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+.RepoTools-taggedUntagged--untagged:hover span {
+  color: #fff;
+}
+/* line 96, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+.RepoTools-taggedUntagged--untagged span {
+  text-transform: uppercase;
+  font-size: .7rem;
+  vertical-align: middle;
+  font-weight: 600;
+  color: #EE327D;
+  padding: .5rem;
+}
+/* line 107, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+.RepoTools-clear {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: .7rem;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+/* line 114, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+.RepoTools-clear-btn {
+  background-color: #EE327D;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: center;
+  padding: 7px 14px;
+  color: white;
+}
+/* line 122, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+.RepoTools-clear-btn:hover {
+  background-image: linear-gradient(to right, #EE327D, #6c38b2);
+}
+/* line 125, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+.RepoTools-clear-btn:hover span {
+  color: #fff;
+}
+/* line 130, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+.RepoTools-clear-btn span {
+  text-transform: uppercase;
+  font-size: .7rem;
+  vertical-align: middle;
+  font-weight: 600;
+  color: white;
+  padding: .5rem;
+}
+
+/* line 142, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+.highlightTagFilter {
+  background: #EE327D;
+  border-color: #EE327D;
+}
+/* line 146, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_RepoTools.scss */
+.highlightTagFilter span {
+  color: white;
+}
+
+/* line 1, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LanguageSelector.scss */
+.LanguageSelector {
+  display: flex;
+  align-items: baseline;
+}
+/* line 6, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LanguageSelector.scss */
+.LanguageSelector i {
+  margin-right: 5px;
+  color: #EE327D;
+}
+/* line 11, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LanguageSelector.scss */
+.LanguageSelector-select {
+  width: 100%;
+}
+
+/**
+ * React Select
+ * ============
+ * Created by Jed Watson and Joss Mackison for KeystoneJS, http://www.keystonejs.com/
+ * https://twitter.com/jedwatson https://twitter.com/jossmackison https://twitter.com/keystonejs
+ * MIT License: https://github.com/JedWatson/react-select
+*/
+/* line 9, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select {
+  position: relative;
+}
+
+/* line 12, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select,
+.Select div,
+.Select input,
+.Select span {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 20, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select.is-disabled > .Select-control {
+  background-color: #f9f9f9;
+}
+
+/* line 23, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select.is-disabled > .Select-control:hover {
+  box-shadow: none;
+}
+
+/* line 26, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select.is-disabled .Select-arrow-zone {
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+/* line 31, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-control {
+  background-color: transparent;
+  border-color: #EE327D;
+  border-radius: 5px;
+  border: 2px solid #EE327D;
+  color: #333;
+  cursor: default;
+  display: table;
+  border-spacing: 0;
+  border-collapse: separate;
+  height: 38.7px;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* line 47, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-control:hover {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* line 50, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-control .Select-input:focus {
+  outline: none;
+}
+
+/* line 53, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.is-searchable.is-open > .Select-control {
+  cursor: text;
+}
+
+/* line 56, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.is-open > .Select-control {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  background: transparent;
+  border-color: #EE327D;
+}
+
+/* line 62, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.is-open > .Select-control > .Select-arrow {
+  border-color: transparent transparent #EE327D;
+  border-width: 0 5px 5px;
+}
+
+/* line 66, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.is-searchable.is-focused:not(.is-open) > .Select-control {
+  cursor: text;
+}
+
+/* line 69, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.is-focused:not(.is-open) > .Select-control {
+  border-color: #EE327D;
+  box-shadow: inset 0 0.5px 0.5px rgba(108, 56, 178, 0.75), 0 0 0 3px rgba(238, 50, 125, 0.5);
+}
+
+/* line 73, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-placeholder,
+.Select--single > .Select-control .Select-value {
+  bottom: 0;
+  color: #a8a4a0;
+  font-weight: 500;
+  font-size: .8rem;
+  vertical-align: middle;
+  left: 0;
+  line-height: 34px;
+  padding-left: 20px;
+  padding-right: 10px;
+  position: absolute;
+  right: 0;
+  top: 1px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* line 92, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.has-value.Select--single > .Select-control .Select-value .Select-value-label,
+.has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label {
+  color: #a8a4a0;
+  font-weight: 500;
+}
+
+/* line 97, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.has-value.Select--single > .Select-control .Select-value a.Select-value-label,
+.has-value.is-pseudo-focused.Select--single > .Select-control .Select-value a.Select-value-label {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* line 102, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.has-value.Select--single > .Select-control .Select-value a.Select-value-label:hover,
+.has-value.is-pseudo-focused.Select--single > .Select-control .Select-value a.Select-value-label:hover,
+.has-value.Select--single > .Select-control .Select-value a.Select-value-label:focus,
+.has-value.is-pseudo-focused.Select--single > .Select-control .Select-value a.Select-value-label:focus {
+  color: #007eff;
+  outline: none;
+  text-decoration: underline;
+}
+
+/* line 110, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-input {
+  height: 34px;
+  padding-left: 20px;
+  padding-right: 10px;
+  vertical-align: middle;
+}
+
+/* line 116, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-input > input {
+  width: 100%;
+  background: none transparent;
+  border: 0 none;
+  box-shadow: none;
+  cursor: default;
+  display: inline-block;
+  font-family: inherit;
+  font-size: .8rem;
+  margin: 0;
+  outline: none;
+  line-height: 14px;
+  /* For IE 8 compatibility */
+  padding: 8px 0 12px;
+  /* For IE 8 compatibility */
+  -webkit-appearance: none;
+}
+
+/* line 133, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.is-focused .Select-input > input {
+  cursor: text;
+}
+
+/* line 136, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.has-value.is-pseudo-focused .Select-input {
+  opacity: 0;
+}
+
+/* line 139, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-control:not(.is-searchable) > .Select-input {
+  outline: none;
+}
+
+/* line 142, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-loading-zone {
+  cursor: pointer;
+  display: table-cell;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 16px;
+}
+
+/* line 150, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-loading {
+  -webkit-animation: Select-animation-spin 400ms infinite linear;
+  -o-animation: Select-animation-spin 400ms infinite linear;
+  animation: Select-animation-spin 400ms infinite linear;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  border-right-color: #333;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+
+/* line 164, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-clear-zone {
+  -webkit-animation: Select-animation-fadeIn 200ms;
+  -o-animation: Select-animation-fadeIn 200ms;
+  animation: Select-animation-fadeIn 200ms;
+  color: #a8a4a0;
+  cursor: pointer;
+  display: table-cell;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 17px;
+}
+
+/* line 176, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-clear-zone:hover {
+  color: #EE327D;
+}
+
+/* line 179, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-clear {
+  display: inline-block;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* line 184, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select--multi .Select-clear-zone {
+  width: 17px;
+}
+
+/* line 187, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-arrow-zone {
+  cursor: pointer;
+  display: table-cell;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 25px;
+  padding-right: 5px;
+  padding-bottom: 4px;
+}
+
+/* line 197, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-arrow {
+  border-color: #EE327D transparent transparent;
+  border-style: solid;
+  border-width: 5px 5px 2.5px;
+  display: inline-block;
+  height: 0;
+  width: 0;
+}
+
+/* line 205, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.is-open .Select-arrow,
+.Select-arrow-zone:hover > .Select-arrow {
+  border-top-color: #EE327D;
+}
+
+/* line 209, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select--multi .Select-multi-value-wrapper {
+  display: inline-block;
+}
+
+/* line 212, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select .Select-aria-only {
+  display: inline-block;
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}
+
+@-webkit-keyframes Select-animation-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes Select-animation-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* line 236, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-menu-outer {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top-color: #e6e6e6;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  margin-top: -1px;
+  max-height: 200px;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 1;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* line 252, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-menu {
+  max-height: 198px;
+  overflow-y: auto;
+}
+
+/* line 256, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-option {
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #666;
+  cursor: pointer;
+  display: block;
+  padding: 8px 10px;
+}
+
+/* line 264, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-option:last-child {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+/* line 268, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-option.is-selected {
+  background-color: #f5faff;
+  /* Fallback color for IE 8 */
+  background-color: rgba(238, 50, 125, 0.1);
+  color: #666;
+}
+
+/* line 274, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-option.is-focused {
+  background-color: rgba(238, 50, 125, 0.1);
+  /* Fallback color for IE 8 */
+  background-color: rgba(238, 50, 125, 0.1);
+  color: #333;
+}
+
+/* line 280, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-option.is-disabled {
+  color: #cccccc;
+  cursor: default;
+}
+
+/* line 284, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-noresults {
+  box-sizing: border-box;
+  color: #999999;
+  cursor: default;
+  display: block;
+  padding: 8px 10px;
+}
+
+/* line 291, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select--multi .Select-input {
+  vertical-align: middle;
+  margin-left: 10px;
+  padding: 0;
+}
+
+/* line 296, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select--multi.has-value .Select-input {
+  margin-left: 10px;
+}
+
+/* line 299, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select--multi .Select-value {
+  background-color: #ebf5ff;
+  /* Fallback color for IE 8 */
+  background-color: rgba(0, 126, 255, 0.08);
+  border-radius: 2px;
+  border: 1px solid #c2e0ff;
+  /* Fallback color for IE 8 */
+  border: 1px solid rgba(0, 126, 255, 0.24);
+  color: #007eff;
+  display: inline-block;
+  font-size: .8rem;
+  line-height: 1.4;
+  margin-left: 5px;
+  margin-top: 5px;
+  vertical-align: top;
+}
+
+/* line 315, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select--multi .Select-value-icon,
+.Select--multi .Select-value-label {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* line 320, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select--multi .Select-value-label {
+  border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
+  cursor: default;
+  padding: 2px 5px;
+}
+
+/* line 326, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select--multi a.Select-value-label {
+  color: #007eff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* line 331, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select--multi a.Select-value-label:hover {
+  text-decoration: underline;
+}
+
+/* line 334, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select--multi .Select-value-icon {
+  cursor: pointer;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+  border-right: 1px solid #c2e0ff;
+  /* Fallback color for IE 8 */
+  border-right: 1px solid rgba(0, 126, 255, 0.24);
+  padding: 1px 5px 3px;
+}
+
+/* line 343, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select--multi .Select-value-icon:hover,
+.Select--multi .Select-value-icon:focus {
+  background-color: #d8eafd;
+  /* Fallback color for IE 8 */
+  background-color: rgba(0, 113, 230, 0.08);
+  color: #0071e6;
+}
+
+/* line 350, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select--multi .Select-value-icon:active {
+  background-color: #c2e0ff;
+  /* Fallback color for IE 8 */
+  background-color: rgba(0, 126, 255, 0.24);
+}
+
+/* line 355, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select--multi.is-disabled .Select-value {
+  background-color: #fcfcfc;
+  border: 1px solid #e3e3e3;
+  color: #333;
+}
+
+/* line 360, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select--multi.is-disabled .Select-value-icon {
+  cursor: not-allowed;
+  border-right: 1px solid #e3e3e3;
+}
+
+/* line 364, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select--multi.is-disabled .Select-value-icon:hover,
+.Select--multi.is-disabled .Select-value-icon:focus,
+.Select--multi.is-disabled .Select-value-icon:active {
+  background-color: #fcfcfc;
+}
+
+@keyframes Select-animation-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+@-webkit-keyframes Select-animation-spin {
+  to {
+    -webkit-transform: rotate(1turn);
+  }
+}
+/**
+ * Overriding
+*/
+/* line 384, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_LangSelector.scss */
+.Select-menu-outer {
+  z-index: 99 !important;
+}
+
+/* line 1, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_AddTag.scss */
+.AddTag {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+/* line 7, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_AddTag.scss */
+.AddTag-clone {
+  display: flex;
+  width: 50%;
+  height: 2rem;
+}
+/* line 12, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_AddTag.scss */
+.AddTag-clone span {
+  color: #000;
+  margin-right: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* line 20, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_AddTag.scss */
+.AddTag-clone input {
+  cursor: pointer;
+  border: 2px solid #EE327D;
+  background: transparent;
+  border-radius: 5px;
+  color: #000;
+  outline: none;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  width: 100%;
+  font-weight: 400;
+  font-size: .8rem;
+}
+/* line 33, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_AddTag.scss */
+.AddTag-clone input::selection {
+  background: rgba(238, 50, 125, 0.75);
+  /* WebKit/Blink Browsers */
+  color: #fff;
+}
+/* line 37, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_AddTag.scss */
+.AddTag-clone input::-moz-selection {
+  background: rgba(238, 50, 125, 0.75);
+  /* Gecko Browsers */
+  color: white;
+}
+/* line 42, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_AddTag.scss */
+.AddTag-clone input::-webkit-input-placeholder {
+  color: #a8a4a0;
+}
+/* line 45, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_AddTag.scss */
+.AddTag-clone input::-moz-placeholder {
+  color: #a8a4a0;
+}
+/* line 48, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_AddTag.scss */
+.AddTag-clone input:-ms-input-placeholder {
+  color: #a8a4a0;
+}
+/* line 51, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_AddTag.scss */
+.AddTag-clone input:-moz-placeholder {
+  color: #a8a4a0;
+}
+/* line 57, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_AddTag.scss */
+.AddTag i {
+  margin-right: 5px;
+  color: #EE327D;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* line 65, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_AddTag.scss */
+.AddTag form {
+  display: flex;
+  height: 2rem;
+  width: 30%;
+  margin-right: 20px;
+}
+/* line 71, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_AddTag.scss */
+.AddTag form input {
+  border: 2px solid #EE327D;
+  background: transparent;
+  border-radius: 5px;
+  color: #000;
+  outline: none;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  width: 100%;
+  font-weight: 400;
+  font-size: .8rem;
+}
+/* line 83, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_AddTag.scss */
+.AddTag form input::-webkit-input-placeholder {
+  color: #a8a4a0;
+}
+/* line 86, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_AddTag.scss */
+.AddTag form input::-moz-placeholder {
+  color: #a8a4a0;
+}
+/* line 89, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_AddTag.scss */
+.AddTag form input:-ms-input-placeholder {
+  color: #a8a4a0;
+}
+/* line 92, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_AddTag.scss */
+.AddTag form input:-moz-placeholder {
+  color: #a8a4a0;
+}
+/* line 97, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_AddTag.scss */
+.AddTag form button {
+  margin-left: 5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color: #EE327D;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 7px 20px;
+  color: white;
+  border: none;
+}
+/* line 108, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_AddTag.scss */
+.AddTag form button:hover {
+  background-image: linear-gradient(to right, #EE327D, #6c38b2);
+}
+
+/* line 1, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Tag.scss */
+.Tag {
+  margin: 0;
+  cursor: pointer;
+}
+/* line 5, /Users/hbendev/code/gitoscope/app/assets/stylesheets/components/_Tag.scss */
+.Tag:hover {
+  color: #db1262;
+}
+
+/* line 1, /Users/hbendev/code/gitoscope/app/assets/stylesheets/views/_home.scss */
+.home {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+/* line 6, /Users/hbendev/code/gitoscope/app/assets/stylesheets/views/_home.scss */
+.home-navbar {
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  /* line 6, /Users/hbendev/code/gitoscope/app/assets/stylesheets/views/_home.scss */
+  .home-navbar {
+    justify-content: space-between;
+  }
+}
+/* line 13, /Users/hbendev/code/gitoscope/app/assets/stylesheets/views/_home.scss */
+.home-navbar-title {
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  z-index: 9;
+  padding-top: 3rem;
+  font-family: "industry", sans-serif;
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  /* line 23, /Users/hbendev/code/gitoscope/app/assets/stylesheets/views/_home.scss */
+  .home-navbar-title {
+    text-align: left;
+    top: 0;
+    left: 0;
+    font-size: 3.2rem;
+    margin-left: 3rem;
+    padding-top: 2.7rem;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 33, /Users/hbendev/code/gitoscope/app/assets/stylesheets/views/_home.scss */
+  .home-navbar-title {
+    font-size: 3.3rem;
+    padding-top: 2.8rem;
+  }
+}
+/* line 39, /Users/hbendev/code/gitoscope/app/assets/stylesheets/views/_home.scss */
+.home-navbar-menu {
+  z-index: 9;
+  font-size: 1.2rem;
+  list-style-type: none;
+  padding-top: 3rem;
+  margin-right: 3rem;
+  display: none;
+}
+@media (min-width: 768px) {
+  /* line 39, /Users/hbendev/code/gitoscope/app/assets/stylesheets/views/_home.scss */
+  .home-navbar-menu {
+    display: inline-flex;
+  }
+}
+/* line 50, /Users/hbendev/code/gitoscope/app/assets/stylesheets/views/_home.scss */
+.home-navbar-menu-item {
+  margin: 0 .8rem;
+}
+/* line 53, /Users/hbendev/code/gitoscope/app/assets/stylesheets/views/_home.scss */
+.home-navbar-menu-item a {
+  color: white;
+}
+/* line 56, /Users/hbendev/code/gitoscope/app/assets/stylesheets/views/_home.scss */
+.home-navbar-menu-item a:hover {
+  border-bottom: 2px solid white;
+}
+/* line 64, /Users/hbendev/code/gitoscope/app/assets/stylesheets/views/_home.scss */
+.home-subtitle {
+  color: white;
+  padding: 0 2rem;
+  font-size: 2.4rem;
+  text-align: center;
+  margin-top: 10rem;
+  z-index: 9;
+  font-family: "industry", sans-serif;
+  font-weight: 400;
+}
+@media (min-width: 768px) {
+  /* line 75, /Users/hbendev/code/gitoscope/app/assets/stylesheets/views/_home.scss */
+  .home-subtitle {
+    font-size: 2.6rem;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 80, /Users/hbendev/code/gitoscope/app/assets/stylesheets/views/_home.scss */
+  .home-subtitle {
+    font-size: 2.8rem;
+  }
+}
+/* line 85, /Users/hbendev/code/gitoscope/app/assets/stylesheets/views/_home.scss */
+.home-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+/* line 90, /Users/hbendev/code/gitoscope/app/assets/stylesheets/views/_home.scss */
+.home-buttons-separator {
+  color: white;
+  z-index: 9;
+  padding-top: 1rem;
+}
+/* line 96, /Users/hbendev/code/gitoscope/app/assets/stylesheets/views/_home.scss */
+.home-buttons-learnMoreBtn {
+  color: white;
+  z-index: 9;
+  background: transparent;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border: 3px solid white;
+  margin-right: 1rem;
+  border-radius: 2.7px;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+}
+/* line 111, /Users/hbendev/code/gitoscope/app/assets/stylesheets/views/_home.scss */
+.home-buttons-learnMoreBtn:hover {
+  background: white;
+  color: #666666;
+  cursor: pointer;
+}
+/* line 118, /Users/hbendev/code/gitoscope/app/assets/stylesheets/views/_home.scss */
+.home-buttons-signUpBtn {
+  color: white;
+  z-index: 9;
+  background: #00AB6C;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border: 3px solid #00AB6C;
+  margin-left: 1rem;
+  border-radius: 2.7px;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+}
+/* line 133, /Users/hbendev/code/gitoscope/app/assets/stylesheets/views/_home.scss */
+.home-buttons-signUpBtn:hover {
+  background: #00925c;
+  border-color: #00925c;
+  color: whitesmoke;
+  cursor: pointer;
+}
+/* line 142, /Users/hbendev/code/gitoscope/app/assets/stylesheets/views/_home.scss */
+.home-hero {
+  background: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
