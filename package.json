@@ -1,7 +1,10 @@
 {
   "name": "astrix",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "The Github Repo Management Tool Every Stargazer Should Have",
+  "engines": {
+    "node": "0.12.7"
+  },
   "main": "index.js",
   "directories": {
     "test": "test"
